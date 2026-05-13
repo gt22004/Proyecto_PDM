@@ -58,4 +58,17 @@ class VehiculoHandler(context: Context) {
             arrayOf(idVehiculo.toString())
         )
     }
+
+    fun asignarUbicacion(idVehiculo: Int, idUbicacion: Int?): Int {
+        val db = dbHelper.writableDatabase
+        val values = ContentValues().apply {
+            put(DatabaseContract.VehiculoEntry.COLUMN_ID_UBICACION, idUbicacion)
+        }
+        return db.update(
+            DatabaseContract.VehiculoEntry.TABLE_NAME,
+            values,
+            "${DatabaseContract.VehiculoEntry.COLUMN_ID} = ?",
+            arrayOf(idVehiculo.toString())
+        )
+    }
 }

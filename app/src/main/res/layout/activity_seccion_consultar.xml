@@ -1,10 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SeccionConsultarActivity">
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".seccion.SeccionConsultarActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Consultar Sección"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="24dp"/>
+
+    <EditText
+        android:id="@+id/editConsultarIdSeccion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese ID de Sección"
+        android:inputType="number"
+        android:layout_marginBottom="12dp"/>
+
+    <Button
+        android:id="@+id/btnConsultarSeccion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Consultar" />
+
+    <TextView
+        android:id="@+id/textResultadoSeccion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Resultado..."
+        android:textSize="18sp"
+        android:layout_marginTop="24dp"
+        android:padding="8dp"
+        android:background="#F0F0F0"/>
+
+</LinearLayout>

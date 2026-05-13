@@ -1,10 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BodegaInsertarActivity">
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".bodega.BodegaInsertarActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Insertar Nueva Bodega"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="24dp"/>
+
+    <EditText
+        android:id="@+id/editNombreBodega"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre de la Bodega"
+        android:inputType="text"
+        android:layout_marginBottom="12dp"/>
+
+    <EditText
+        android:id="@+id/editDepartamento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Departamento"
+        android:inputType="text"
+        android:layout_marginBottom="12dp"/>
+
+    <EditText
+        android:id="@+id/editDireccion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Dirección"
+        android:inputType="text"
+        android:layout_marginBottom="12dp"/>
+
+    <EditText
+        android:id="@+id/editCapacidadBodega"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Capacidad Máxima de Secciones"
+        android:inputType="number"
+        android:layout_marginBottom="24dp"/>
+
+    <Button
+        android:id="@+id/btnGuardarBodega"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Guardar Bodega" />
+
+    <Button
+        android:id="@+id/btnLimpiarBodega"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Limpiar Campos"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_marginTop="8dp"/>
+
+</LinearLayout>

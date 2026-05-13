@@ -26,7 +26,9 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         val createVehiculoTable = "CREATE TABLE ${DatabaseContract.VehiculoEntry.TABLE_NAME} (" +
                 "${DatabaseContract.VehiculoEntry.COLUMN_ID} INTEGER PRIMARY KEY, " +
                 "${DatabaseContract.VehiculoEntry.COLUMN_MARCA} TEXT, " +
-                "${DatabaseContract.VehiculoEntry.COLUMN_ESTADO} TEXT DEFAULT 'DISPONIBLE')"
+                "${DatabaseContract.VehiculoEntry.COLUMN_ESTADO} TEXT DEFAULT 'DISPONIBLE', " +
+                "${DatabaseContract.VehiculoEntry.COLUMN_ID_UBICACION} INTEGER, " +
+                "FOREIGN KEY (${DatabaseContract.VehiculoEntry.COLUMN_ID_UBICACION}) REFERENCES ${DatabaseContract.UbicacionEntry.TABLE_NAME}(${DatabaseContract.UbicacionEntry.COLUMN_ID}) ON DELETE SET NULL)"
         db.execSQL(createVehiculoTable)
 
         val createVentaTable = "CREATE TABLE ${DatabaseContract.VentaEntry.TABLE_NAME} (" +
@@ -56,6 +58,30 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                 "FOREIGN KEY (${DatabaseContract.MovimientoVehiculoEntry.COLUMN_ID_MOVIMIENTO}) REFERENCES ${DatabaseContract.MovimientoEntry.TABLE_NAME}(${DatabaseContract.MovimientoEntry.COLUMN_ID}), " +
                 "FOREIGN KEY (${DatabaseContract.MovimientoVehiculoEntry.COLUMN_ID_VEHICULO}) REFERENCES ${DatabaseContract.VehiculoEntry.TABLE_NAME}(${DatabaseContract.VehiculoEntry.COLUMN_ID}))"
         db.execSQL(createMovVehTable)
+
+        val createBodegaTable = "CREATE TABLE ${DatabaseContract.BodegaEntry.TABLE_NAME} (" +
+                "${DatabaseContract.BodegaEntry.COLUMN_ID} INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "${DatabaseContract.BodegaEntry.COLUMN_NOMBRE} TEXT, " +
+                "${DatabaseContract.BodegaEntry.COLUMN_DEPARTAMENTO} TEXT, " +
+                "${DatabaseContract.BodegaEntry.COLUMN_DIRECCION} TEXT, " +
+                "${DatabaseContract.BodegaEntry.COLUMN_CAPACIDAD} INTEGER)"
+        db.execSQL(createBodegaTable)
+
+        val createSeccionTable = "CREATE TABLE ${DatabaseContract.SeccionEntry.TABLE_NAME} (" +
+                "${DatabaseContract.SeccionEntry.COLUMN_ID} INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "${DatabaseContract.SeccionEntry.COLUMN_ID_BODEGA} INTEGER, " +
+                "${DatabaseContract.SeccionEntry.COLUMN_NIVEL} INTEGER, " +
+                "${DatabaseContract.SeccionEntry.COLUMN_CAPACIDAD} INTEGER, " +
+                "FOREIGN KEY (${DatabaseContract.SeccionEntry.COLUMN_ID_BODEGA}) REFERENCES ${DatabaseContract.BodegaEntry.TABLE_NAME}(${DatabaseContract.BodegaEntry.COLUMN_ID}) ON DELETE CASCADE)"
+        db.execSQL(createSeccionTable)
+
+        val createUbicacionTable = "CREATE TABLE ${DatabaseContract.UbicacionEntry.TABLE_NAME} (" +
+                "${DatabaseContract.UbicacionEntry.COLUMN_ID} INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "${DatabaseContract.UbicacionEntry.COLUMN_ID_SECCION} INTEGER, " +
+                "${DatabaseContract.UbicacionEntry.COLUMN_FECHA} TEXT, " +
+                "${DatabaseContract.UbicacionEntry.COLUMN_ACTIVA} INTEGER, " +
+                "FOREIGN KEY (${DatabaseContract.UbicacionEntry.COLUMN_ID_SECCION}) REFERENCES ${DatabaseContract.SeccionEntry.TABLE_NAME}(${DatabaseContract.SeccionEntry.COLUMN_ID}) ON DELETE CASCADE)"
+        db.execSQL(createUbicacionTable)
 
         // TRIGGER 1: Descargo automático al vender
         val trVentaInsert = """
@@ -93,6 +119,37 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
             END;
         """.trimIndent()
         db.execSQL(trCapacidad)
+
+        // TRIGGER 4: Validar capacidad máxima de la sección
+        val trCapacidadSeccion = """
+            CREATE TRIGGER tr_validar_capacidad_seccion BEFORE INSERT ON ${DatabaseContract.UbicacionEntry.TABLE_NAME}
+            BEGIN
+                SELECT CASE
+                    WHEN (SELECT COUNT(*) FROM ${DatabaseContract.UbicacionEntry.TABLE_NAME} 
+                          WHERE ${DatabaseContract.UbicacionEntry.COLUMN_ID_SECCION} = NEW.${DatabaseContract.UbicacionEntry.COLUMN_ID_SECCION} 
+                          AND ${DatabaseContract.UbicacionEntry.COLUMN_ACTIVA} = 1) >= 
+                         (SELECT ${DatabaseContract.SeccionEntry.COLUMN_CAPACIDAD} FROM ${DatabaseContract.SeccionEntry.TABLE_NAME} 
+                          WHERE ${DatabaseContract.SeccionEntry.COLUMN_ID} = NEW.${DatabaseContract.UbicacionEntry.COLUMN_ID_SECCION})
+                    THEN RAISE(ABORT, 'Capacidad máxima de la sección alcanzada')
+                END;
+            END;
+        """.trimIndent()
+        db.execSQL(trCapacidadSeccion)
+
+        // TRIGGER 5: Validar cantidad máxima de secciones por bodega
+        val trMaxSecciones = """
+            CREATE TRIGGER tr_validar_max_secciones BEFORE INSERT ON ${DatabaseContract.SeccionEntry.TABLE_NAME}
+            BEGIN
+                SELECT CASE
+                    WHEN (SELECT COUNT(*) FROM ${DatabaseContract.SeccionEntry.TABLE_NAME} 
+                          WHERE ${DatabaseContract.SeccionEntry.COLUMN_ID_BODEGA} = NEW.${DatabaseContract.SeccionEntry.COLUMN_ID_BODEGA}) >= 
+                         (SELECT ${DatabaseContract.BodegaEntry.COLUMN_CAPACIDAD} FROM ${DatabaseContract.BodegaEntry.TABLE_NAME} 
+                          WHERE ${DatabaseContract.BodegaEntry.COLUMN_ID} = NEW.${DatabaseContract.SeccionEntry.COLUMN_ID_BODEGA})
+                    THEN RAISE(ABORT, 'Capacidad máxima de secciones en la bodega alcanzada')
+                END;
+            END;
+        """.trimIndent()
+        db.execSQL(trMaxSecciones)
     }
 
     override fun onOpen(db: SQLiteDatabase) {
@@ -110,12 +167,15 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         db.execSQL("DROP TABLE IF EXISTS ${DatabaseContract.MovimientoEntry.TABLE_NAME}")
         db.execSQL("DROP TABLE IF EXISTS ${DatabaseContract.MovimientoVehiculoEntry.TABLE_NAME}")
         db.execSQL("DROP TABLE IF EXISTS ${DatabaseContract.VentaEntry.TABLE_NAME}")
+        db.execSQL("DROP TABLE IF EXISTS ${DatabaseContract.UbicacionEntry.TABLE_NAME}")
+        db.execSQL("DROP TABLE IF EXISTS ${DatabaseContract.SeccionEntry.TABLE_NAME}")
+        db.execSQL("DROP TABLE IF EXISTS ${DatabaseContract.BodegaEntry.TABLE_NAME}")
         onCreate(db)
     }
 
     companion object {
         private const val DATABASE_NAME = "proyecto_pdm.db"
-        private const val DATABASE_VERSION = 10
+        private const val DATABASE_VERSION = 13
 
         @Volatile
         private var INSTANCE: DatabaseHelper? = null

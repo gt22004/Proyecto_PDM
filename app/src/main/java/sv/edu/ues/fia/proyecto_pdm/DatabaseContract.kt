@@ -19,6 +19,7 @@ object DatabaseContract {
         const val COLUMN_ID = "IdVehiculo"
         const val COLUMN_MARCA = "Marca"
         const val COLUMN_ESTADO = "Estado" // 0: Disponible, 1: Vendido
+        const val COLUMN_ID_UBICACION = "IdUbicacion"
     }
 
     object VentaEntry {
@@ -50,5 +51,30 @@ object DatabaseContract {
         const val TABLE_NAME = "Movimiento_Vehiculo"
         const val COLUMN_ID_MOVIMIENTO = "IdMovimiento"
         const val COLUMN_ID_VEHICULO = "IdVehiculo"
+    }
+
+    object BodegaEntry {
+        const val TABLE_NAME = "Bodega"
+        const val COLUMN_ID = "IdBodega"
+        const val COLUMN_NOMBRE = "NombreBodega"
+        const val COLUMN_DEPARTAMENTO = "Departamento"
+        const val COLUMN_DIRECCION = "Direccion"
+        const val COLUMN_CAPACIDAD = "CapacidadSecciones"
+    }
+
+    object SeccionEntry {
+        const val TABLE_NAME = "Seccion"
+        const val COLUMN_ID = "IdSeccion"
+        const val COLUMN_ID_BODEGA = "IdBodega"
+        const val COLUMN_NIVEL = "Nivel"
+        const val COLUMN_CAPACIDAD = "CapacidadMax"
+    }
+
+    object UbicacionEntry {
+        const val TABLE_NAME = "Ubicacion_Vehiculo"
+        const val COLUMN_ID = "IdUbicacion"
+        const val COLUMN_ID_SECCION = "IdSeccion"
+        const val COLUMN_FECHA = "FechaAsignacion"
+        const val COLUMN_ACTIVA = "Activa"
     }
 }

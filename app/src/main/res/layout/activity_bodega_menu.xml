@@ -1,10 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BodegaMenuActivity">
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center"
+    tools:context=".bodega.BodegaMenuActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gestión de Bodegas"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="40dp"/>
+
+    <Button
+        android:id="@+id/btnMenuInsertar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="INSERTAR BODEGA"
+        android:layout_marginBottom="12dp"/>
+
+    <Button
+        android:id="@+id/btnMenuConsultar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="CONSULTAR BODEGA"
+        android:layout_marginBottom="12dp"/>
+
+    <Button
+        android:id="@+id/btnMenuActualizar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="ACTUALIZAR BODEGA"
+        android:layout_marginBottom="12dp"/>
+
+    <Button
+        android:id="@+id/btnMenuEliminar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="ELIMINAR BODEGA"
+        android:backgroundTint="#FF5252"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="40dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#CCCCCC"
+        android:layout_marginBottom="24dp"/>
+
+    <Button
+        android:id="@+id/btnGestionSecciones"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="GESTIÓN DE SECCIONES"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_marginBottom="12dp"/>
+
+    <Button
+        android:id="@+id/btnGestionUbicaciones"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="ASIGNAR UBICACIONES"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+
+</LinearLayout>

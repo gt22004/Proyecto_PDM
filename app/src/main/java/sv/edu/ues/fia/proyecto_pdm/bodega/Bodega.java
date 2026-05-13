@@ -5,6 +5,7 @@ public class Bodega {
     private String nombreBodega;
     private String departamento;
     private String direccion;
+    private int capacidadSecciones;
 
     public Bodega() {
     }
@@ -38,5 +39,13 @@ public class Bodega {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+
+    public int getCapacidadSecciones() {
+        return capacidadSecciones;
+    }
+
+    public void setCapacidadSecciones(int capacidadSecciones) {
+        this.capacidadSecciones = capacidadSecciones;
     }
 }
