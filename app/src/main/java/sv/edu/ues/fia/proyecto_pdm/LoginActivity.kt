@@ -71,7 +71,7 @@ class LoginActivity : AppCompatActivity() {
             apellidoCasada = null,
             genero = "M",
             fechaNacimiento = "1990-05-15",
-            direccion = "Col. Escalón, San Salvador",
+            direccion = "Col. Miramonte, San Salvador",
             correoElectronico = "juan.perez@email.com",
             nuiResponsable = null
         ))
