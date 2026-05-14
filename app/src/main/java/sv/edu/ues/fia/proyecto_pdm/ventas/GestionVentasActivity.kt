@@ -77,7 +77,7 @@ class GestionVentasActivity : AppCompatActivity() {
                     val index = importadores.indexOfFirst { it.nui == ventaActual?.nuiImportador }
                     if (index != -1) spinnerImportadores.setSelection(index)
                     
-                    val veh = vehiculoHandler.buscar(ventaActual!!.idVehiculo)
+                    val veh = vehiculoHandler.consultar(ventaActual!!.idVehiculo)
                     val imp = importadorHandler.buscar(ventaActual!!.nuiImportador)
                     txtEstado.text = "Vehículo: ${veh?.marca} | Importador: ${imp?.nombre} | Estado: ${veh?.estado}"
                     Toast.makeText(this, "Venta encontrada", Toast.LENGTH_SHORT).show()

@@ -60,7 +60,7 @@ class InsertarVentaActivity : AppCompatActivity() {
             
             if (idVenta != null && idVeh != null && precio != null && posImportador != -1 && fecha.isNotEmpty()) {
                 val nui = importadores[posImportador].nui
-                val veh = vehiculoHandler.buscar(idVeh)
+                val veh = vehiculoHandler.consultar(idVeh)
                 if (veh != null) {
                     if (veh.estado == "DISPONIBLE") {
                         val nuevaVenta = Venta(idVenta, idVeh, precio, nui, fecha)

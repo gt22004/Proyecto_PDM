@@ -44,9 +44,13 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         val createVehiculoTable = "CREATE TABLE ${DatabaseContract.VehiculoEntry.TABLE_NAME} (" +
                 "${DatabaseContract.VehiculoEntry.COLUMN_ID} INTEGER PRIMARY KEY, " +
                 "${DatabaseContract.VehiculoEntry.COLUMN_MARCA} TEXT, " +
+                "${DatabaseContract.VehiculoEntry.COLUMN_MODELO} TEXT, " +
+                "${DatabaseContract.VehiculoEntry.COLUMN_ANIO} INTEGER, " +
                 "${DatabaseContract.VehiculoEntry.COLUMN_ESTADO} TEXT DEFAULT 'DISPONIBLE', " +
                 "${DatabaseContract.VehiculoEntry.COLUMN_ID_UBICACION} INTEGER, " +
-                "FOREIGN KEY (${DatabaseContract.VehiculoEntry.COLUMN_ID_UBICACION}) REFERENCES ${DatabaseContract.UbicacionEntry.TABLE_NAME}(${DatabaseContract.UbicacionEntry.COLUMN_ID}) ON DELETE SET NULL)"
+                "${DatabaseContract.VehiculoEntry.COLUMN_ID_IMPORTACION} INTEGER, " +
+                "FOREIGN KEY (${DatabaseContract.VehiculoEntry.COLUMN_ID_UBICACION}) REFERENCES ${DatabaseContract.UbicacionEntry.TABLE_NAME}(${DatabaseContract.UbicacionEntry.COLUMN_ID}) ON DELETE SET NULL, " +
+                "FOREIGN KEY (${DatabaseContract.VehiculoEntry.COLUMN_ID_IMPORTACION}) REFERENCES ${DatabaseContract.ImportacionEntry.TABLE_NAME}(${DatabaseContract.ImportacionEntry.COLUMN_ID}))"
         db.execSQL(createVehiculoTable)
 
         val createVentaTable = "CREATE TABLE ${DatabaseContract.VentaEntry.TABLE_NAME} (" +
@@ -198,6 +202,22 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
             END;
         """.trimIndent()
         db.execSQL(trMaxSecciones)
+
+        // TRIGGER 6: Validar capacidad máxima de la importación
+        val trCapacidadImportacion = """
+            CREATE TRIGGER tr_validar_capacidad_importacion BEFORE INSERT ON ${DatabaseContract.VehiculoEntry.TABLE_NAME}
+            BEGIN
+                SELECT CASE
+                    WHEN (SELECT COUNT(*) FROM ${DatabaseContract.VehiculoEntry.TABLE_NAME} 
+                          WHERE ${DatabaseContract.VehiculoEntry.COLUMN_ID_IMPORTACION} = NEW.${DatabaseContract.VehiculoEntry.COLUMN_ID_IMPORTACION}) >= 
+                         (SELECT ${DatabaseContract.ImportacionEntry.COLUMN_CANTIDAD_VEHICULOS} 
+                          FROM ${DatabaseContract.ImportacionEntry.TABLE_NAME} 
+                          WHERE ${DatabaseContract.ImportacionEntry.COLUMN_ID} = NEW.${DatabaseContract.VehiculoEntry.COLUMN_ID_IMPORTACION})
+                    THEN RAISE(ABORT, 'Capacidad máxima de la importación alcanzada')
+                END;
+            END;
+        """.trimIndent()
+        db.execSQL(trCapacidadImportacion)
     }
 
     override fun onOpen(db: SQLiteDatabase) {
@@ -228,7 +248,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     companion object {
         private const val DATABASE_NAME = "proyecto_pdm.db"
       
-        private const val DATABASE_VERSION = 18
+        private const val DATABASE_VERSION = 19
 
         @Volatile
         private var INSTANCE: DatabaseHelper? = null

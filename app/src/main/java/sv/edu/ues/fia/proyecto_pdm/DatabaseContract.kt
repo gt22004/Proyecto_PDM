@@ -18,8 +18,11 @@ object DatabaseContract {
         const val TABLE_NAME = "Vehiculo"
         const val COLUMN_ID = "IdVehiculo"
         const val COLUMN_MARCA = "Marca"
-        const val COLUMN_ESTADO = "Estado" // 0: Disponible, 1: Vendido
+        const val COLUMN_MODELO = "Modelo"
+        const val COLUMN_ANIO = "Anio"
+        const val COLUMN_ESTADO = "Estado" // DISPONIBLE o VENDIDO
         const val COLUMN_ID_UBICACION = "IdUbicacion"
+        const val COLUMN_ID_IMPORTACION = "IdImportacion"
     }
 
     object VentaEntry {

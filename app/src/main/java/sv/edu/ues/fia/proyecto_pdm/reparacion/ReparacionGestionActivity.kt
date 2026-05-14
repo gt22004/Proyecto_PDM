@@ -111,7 +111,7 @@ class ReparacionGestionActivity : AppCompatActivity() {
                     val editada = Reparacion(
                         idReparacion = reparacionActual!!.idReparacion,
                         idTaller = talleres[posTaller].idTaller,
-                        idVehiculo = vehiculos[posVehiculo].idVehiculo,
+                        idVehiculo = vehiculos[posVehiculo].idVehiculo!!,
                         fechaEntrada = fechaEntrada,
                         fechaSalida = fechaSalida.ifEmpty { null },
                         descripcionTrabajo = descripcion,

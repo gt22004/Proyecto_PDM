@@ -108,7 +108,7 @@ class UbicacionInsertarActivity : AppCompatActivity() {
 
             if (idUbicacionGen != -1L) {
                 // 2. Actualizar el vehículo para que apunte a esta ubicación
-                vehiculoHandler.asignarUbicacion(vehiculoSel.idVehiculo, idUbicacionGen.toInt())
+                vehiculoHandler.asignarUbicacion(vehiculoSel.idVehiculo!!, idUbicacionGen.toInt())
                 
                 Toast.makeText(this, "Ubicación asignada con éxito al vehículo ${vehiculoSel.idVehiculo}", Toast.LENGTH_LONG).show()
                 finish()

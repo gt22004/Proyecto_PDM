@@ -49,7 +49,7 @@ class GestionVehiculosMovimientoActivity : AppCompatActivity() {
             val vehIdStr = editVehId.text.toString()
             if (vehIdStr.isNotEmpty()) {
                 val vehId = vehIdStr.toInt()
-                val veh = vehHandler.buscar(vehId)
+                val veh = vehHandler.consultar(vehId)
                 if (veh != null) {
                     try {
                         val res = movHandler.agregarVehiculoAMovimiento(idMovimiento, vehId)
@@ -71,7 +71,7 @@ class GestionVehiculosMovimientoActivity : AppCompatActivity() {
             val vehIdNuevoStr = editVehId.text.toString()
             if (idVehiculoSeleccionado != null && vehIdNuevoStr.isNotEmpty()) {
                 val vehIdNuevo = vehIdNuevoStr.toInt()
-                if (vehHandler.buscar(vehIdNuevo) != null) {
+                if (vehHandler.consultar(vehIdNuevo) != null) {
                     try {
                         val res = movHandler.actualizarVehiculoDeMovimiento(idMovimiento, idVehiculoSeleccionado!!, vehIdNuevo)
                         if (res > 0) {
