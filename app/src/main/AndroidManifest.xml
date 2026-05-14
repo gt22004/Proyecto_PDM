@@ -116,6 +116,9 @@
 
         <activity
             android:name=".movimientos.GestionVehiculosMovimientoActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".taller.TallerGestionActivity"
             android:exported="false" />
 
@@ -149,6 +152,25 @@
 
         <activity
             android:name=".importador.ImportadorEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".importador.TelefonoImportadorMenuActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".importador.TelefonoImportadorInsertarActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".importador.TelefonoImportadorConsultarActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".importador.TelefonoImportadorActualizarActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".importador.TelefonoImportadorEliminarActivity"
             android:exported="false" />
     </application>
 

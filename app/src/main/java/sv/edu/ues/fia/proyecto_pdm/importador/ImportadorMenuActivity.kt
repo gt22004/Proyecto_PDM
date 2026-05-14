@@ -35,5 +35,8 @@ class ImportadorMenuActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btnImportadorEliminar).setOnClickListener {
             startActivity(Intent(this, ImportadorEliminarActivity::class.java))
         }
+        findViewById<Button>(R.id.btnTelefonosImportador).setOnClickListener {
+            startActivity(Intent(this, TelefonoImportadorMenuActivity::class.java))
+        }
     }
 }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".importador.TelefonoImportadorEliminarActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Eliminar Teléfono"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="24dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ID del Teléfono"
+        android:textStyle="bold"/>
+    <EditText
+        android:id="@+id/editEliminarTelefonoId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ID del teléfono a eliminar"
+        android:inputType="number"
+        android:layout_marginBottom="24dp"/>
+
+    <Button
+        android:id="@+id/btnEliminarTelefono"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ELIMINAR TELÉFONO"
+        android:backgroundTint="#FF5252"
+        android:textColor="#FFFFFF"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="¡Atención! Esta acción no se puede deshacer."
+        android:textColor="#FF0000"
+        android:gravity="center"
+        android:layout_marginTop="12dp"
+        android:textSize="12sp"
+        android:textStyle="italic"/>
+
+</LinearLayout>

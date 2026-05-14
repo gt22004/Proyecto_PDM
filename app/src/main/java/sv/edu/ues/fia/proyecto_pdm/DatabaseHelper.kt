@@ -18,6 +18,15 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                 "${DatabaseContract.UsuarioEntry.COLUMN_PASSWORD} TEXT)"
         db.execSQL(createUsuarioTable)
 
+        val createTelefonoImportadorTable = "CREATE TABLE ${DatabaseContract.TelefonoImportadorEntry.TABLE_NAME} (" +
+                "${DatabaseContract.TelefonoImportadorEntry.COLUMN_ID} INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "${DatabaseContract.TelefonoImportadorEntry.COLUMN_NUI} TEXT NOT NULL, " +
+                "${DatabaseContract.TelefonoImportadorEntry.COLUMN_NUMERO} TEXT NOT NULL, " +
+                "${DatabaseContract.TelefonoImportadorEntry.COLUMN_TIPO} TEXT, " +
+                "FOREIGN KEY (${DatabaseContract.TelefonoImportadorEntry.COLUMN_NUI}) " +
+                "REFERENCES ${DatabaseContract.ImportadorEntry.TABLE_NAME}(${DatabaseContract.ImportadorEntry.COLUMN_NUI}))"
+        db.execSQL(createTelefonoImportadorTable)
+
         val createImportadorTable = "CREATE TABLE ${DatabaseContract.ImportadorEntry.TABLE_NAME} (" +
                 "${DatabaseContract.ImportadorEntry.COLUMN_NUI} TEXT PRIMARY KEY, " +
                 "${DatabaseContract.ImportadorEntry.COLUMN_NOMBRE} TEXT NOT NULL, " +
@@ -202,13 +211,14 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         db.execSQL("DROP TABLE IF EXISTS ${DatabaseContract.BodegaEntry.TABLE_NAME}")
         db.execSQL("DROP TABLE IF EXISTS ${DatabaseContract.ReparacionEntry.TABLE_NAME}")
         db.execSQL("DROP TABLE IF EXISTS ${DatabaseContract.TallerEntry.TABLE_NAME}")
+        db.execSQL("DROP TABLE IF EXISTS ${DatabaseContract.TelefonoImportadorEntry.TABLE_NAME}")
         onCreate(db)
     }
 
     companion object {
         private const val DATABASE_NAME = "proyecto_pdm.db"
       
-        private const val DATABASE_VERSION = 16
+        private const val DATABASE_VERSION = 17
 
         @Volatile
         private var INSTANCE: DatabaseHelper? = null
