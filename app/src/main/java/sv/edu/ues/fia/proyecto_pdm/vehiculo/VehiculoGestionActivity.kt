@@ -22,6 +22,7 @@ class VehiculoGestionActivity : AppCompatActivity() {
     private lateinit var btnActualizar: Button
     private lateinit var btnEliminar: Button
     private lateinit var btnLimpiar: Button
+    private lateinit var btnIrAEstado: Button
 
     private lateinit var vehiculoHandler: VehiculoHandler
     private lateinit var importacionHandler: ImportacionHandler
@@ -44,12 +45,17 @@ class VehiculoGestionActivity : AppCompatActivity() {
         btnActualizar = findViewById(R.id.btnActualizarVehiculo)
         btnEliminar = findViewById(R.id.btnEliminarVehiculo)
         btnLimpiar = findViewById(R.id.btnLimpiarVehiculo)
+        btnIrAEstado = findViewById(R.id.btnIrAEstadoVehicular)
 
         btnInsertar.setOnClickListener { insertar() }
         btnConsultar.setOnClickListener { consultar() }
         btnActualizar.setOnClickListener { actualizar() }
         btnEliminar.setOnClickListener { eliminar() }
         btnLimpiar.setOnClickListener { limpiar() }
+        btnIrAEstado.setOnClickListener {
+            val intent = android.content.Intent(this, sv.edu.ues.fia.proyecto_pdm.estadovehicular.EstadoVehicularGestionActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun insertar() {

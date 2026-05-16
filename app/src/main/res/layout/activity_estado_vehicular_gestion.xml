@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".vehiculo.VehiculoGestionActivity">
+    tools:context=".estadovehicular.EstadoVehicularGestionActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Gestión de Vehículos"
+            android:text="Estado Vehicular"
             android:textSize="24sp"
             android:textStyle="bold"
             android:gravity="center"
@@ -23,66 +23,80 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ID Vehículo"
+            android:text="1. Seleccione Vehículo (VIN)"
             android:textStyle="bold"/>
-        <EditText
-            android:id="@+id/editIdVehiculo"
+        <Spinner
+            android:id="@+id/spinnerVehiculoEstado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="ID único del vehículo"
-            android:inputType="number"
             android:layout_marginBottom="12dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Marca"
+            android:text="2. Historial de Estados (por fecha)"
             android:textStyle="bold"/>
-        <EditText
-            android:id="@+id/editMarca"
+        <Spinner
+            android:id="@+id/spinnerHistorialEstados"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ej. Toyota"
-            android:inputType="text"
+            android:layout_marginBottom="24dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#CCCCCC"
+            android:layout_marginBottom="24dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Descripción del Estado"
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/editDescripcionEstado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ej. Abolladura en puerta"
+            android:inputType="textMultiLine"
             android:layout_marginBottom="12dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Modelo"
+            android:text="Fecha del Registro"
             android:textStyle="bold"/>
         <EditText
-            android:id="@+id/editModelo"
+            android:id="@+id/editFechaEstado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ej. Corolla"
-            android:inputType="text"
+            android:hint="Seleccione Fecha"
+            android:focusable="false"
+            android:clickable="true"
             android:layout_marginBottom="12dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Año"
-            android:textStyle="bold"/>
-        <EditText
-            android:id="@+id/editAnio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Ej. 2024"
-            android:inputType="number"
-            android:layout_marginBottom="12dp"/>
+            android:text="Fotografía"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
 
-        <TextView
+        <ImageView
+            android:id="@+id/imgVehiculoEstado"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#EEEEEE"
+            android:scaleType="centerInside"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="Imagen del estado"/>
+
+        <Button
+            android:id="@+id/btnSeleccionarImagen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ID Importación"
-            android:textStyle="bold"/>
-        <EditText
-            android:id="@+id/editIdImportacionVehiculo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="ID de la importación vinculada"
-            android:inputType="number"
+            android:text="CAMBIAR IMAGEN"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_marginBottom="24dp"/>
 
         <GridLayout
@@ -92,23 +106,24 @@
             android:rowCount="2">
 
             <Button
-                android:id="@+id/btnInsertarVehiculo"
+                android:id="@+id/btnInsertarEstado"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:text="INSERTAR"
+                android:text="INSERTAR NUEVO"
                 android:layout_margin="4dp"/>
 
             <Button
-                android:id="@+id/btnConsultarVehiculo"
+                android:id="@+id/btnConsultarEstado"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:text="CONSULTAR"
-                android:layout_margin="4dp"/>
+                android:text="RECARGAR"
+                android:layout_margin="4dp"
+                android:visibility="gone"/>
 
             <Button
-                android:id="@+id/btnActualizarVehiculo"
+                android:id="@+id/btnActualizarEstado"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -116,7 +131,7 @@
                 android:layout_margin="4dp"/>
 
             <Button
-                android:id="@+id/btnEliminarVehiculo"
+                android:id="@+id/btnEliminarEstado"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -127,21 +142,12 @@
         </GridLayout>
 
         <Button
-            android:id="@+id/btnLimpiarVehiculo"
+            android:id="@+id/btnLimpiarEstado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="LIMPIAR"
+            android:text="LIMPIAR CAMPOS"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_marginTop="12dp"/>
-
-        <Button
-            android:id="@+id/btnIrAEstadoVehicular"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ESTADO VEHICULAR"
-            android:layout_marginTop="12dp"
-            android:backgroundTint="#4CAF50"
-            android:textColor="#FFFFFF"/>
 
     </LinearLayout>
 </ScrollView>

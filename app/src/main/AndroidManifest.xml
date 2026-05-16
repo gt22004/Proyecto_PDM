@@ -152,6 +152,9 @@
         <activity
             android:name=".vehiculo.VehiculoGestionActivity"
             android:exported="false" />
+        <activity
+            android:name=".estadovehicular.EstadoVehicularGestionActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

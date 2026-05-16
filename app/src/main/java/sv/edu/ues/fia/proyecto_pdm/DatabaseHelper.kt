@@ -135,6 +135,16 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                 "REFERENCES ${DatabaseContract.ImportadorEntry.TABLE_NAME}(${DatabaseContract.ImportadorEntry.COLUMN_NUI}))"
         db.execSQL(createImportacionTable)
 
+        val createEstadoVehicularTable = "CREATE TABLE ${DatabaseContract.EstadoVehicularEntry.TABLE_NAME} (" +
+                "${DatabaseContract.EstadoVehicularEntry.COLUMN_ID} INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "${DatabaseContract.EstadoVehicularEntry.COLUMN_ID_VEHICULO} INTEGER NOT NULL, " +
+                "${DatabaseContract.EstadoVehicularEntry.COLUMN_DESCRIPCION} TEXT, " +
+                "${DatabaseContract.EstadoVehicularEntry.COLUMN_IMAGEN} BLOB, " +
+                "${DatabaseContract.EstadoVehicularEntry.COLUMN_FECHA} TEXT, " +
+                "FOREIGN KEY (${DatabaseContract.EstadoVehicularEntry.COLUMN_ID_VEHICULO}) " +
+                "REFERENCES ${DatabaseContract.VehiculoEntry.TABLE_NAME}(${DatabaseContract.VehiculoEntry.COLUMN_ID}) ON DELETE CASCADE)"
+        db.execSQL(createEstadoVehicularTable)
+
         // TRIGGER 1: Descargo automático al vender
         val trVentaInsert = """
             CREATE TRIGGER tr_venta_descargo AFTER INSERT ON ${DatabaseContract.VentaEntry.TABLE_NAME}
@@ -242,13 +252,14 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         db.execSQL("DROP TABLE IF EXISTS ${DatabaseContract.TallerEntry.TABLE_NAME}")
         db.execSQL("DROP TABLE IF EXISTS ${DatabaseContract.TelefonoImportadorEntry.TABLE_NAME}")
         db.execSQL("DROP TABLE IF EXISTS ${DatabaseContract.ImportacionEntry.TABLE_NAME}")
+        db.execSQL("DROP TABLE IF EXISTS ${DatabaseContract.EstadoVehicularEntry.TABLE_NAME}")
         onCreate(db)
     }
 
     companion object {
         private const val DATABASE_NAME = "proyecto_pdm.db"
       
-        private const val DATABASE_VERSION = 19
+        private const val DATABASE_VERSION = 20
 
         @Volatile
         private var INSTANCE: DatabaseHelper? = null

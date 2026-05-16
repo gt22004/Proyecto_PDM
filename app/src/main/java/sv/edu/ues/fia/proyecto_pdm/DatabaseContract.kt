@@ -124,4 +124,13 @@ object DatabaseContract {
         const val COLUMN_CANTIDAD_VEHICULOS = "CantidadVehiculos"
         const val COLUMN_FECHA = "FechaImportacion"
     }
+
+    object EstadoVehicularEntry {
+        const val TABLE_NAME = "Estado_Vehicular"
+        const val COLUMN_ID = "IdEstado"
+        const val COLUMN_ID_VEHICULO = "IdVehiculo"
+        const val COLUMN_DESCRIPCION = "Descripcion"
+        const val COLUMN_IMAGEN = "Imagen"
+        const val COLUMN_FECHA = "FechaEstado"
+    }
 }
