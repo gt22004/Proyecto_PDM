@@ -237,6 +237,31 @@
                 android:layout_marginTop="8dp"/>
         </LinearLayout>
 
+        <!-- Opción 9: GASTOS -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_margin="8dp">
+
+            <ImageButton
+                android:id="@+id/btnIrAGastos"
+                style="@style/HubIconButton"
+                android:src="@drawable/ic_gestion"
+                android:contentDescription="@string/menu_gastos"
+                app:tint="@color/auto_import_dark"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/menu_gastos"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:textColor="@color/auto_import_text_dark"
+                android:layout_marginTop="8dp"/>
+        </LinearLayout>
+
     </GridLayout>
 
 </LinearLayout>
