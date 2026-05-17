@@ -255,16 +255,30 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         """.trimIndent()
         db.execSQL(trCapacidadImportacion)
 
-        // TRIGGER 7: Actualizar estado del vehículo al enviarlo a reparación
+        // TRIGGER 7: Actualizar estado del vehículo al enviarlo a reparación o al marcar como APTO
         val trEstadoReparacion = """
         CREATE TRIGGER tr_estado_reparacion AFTER INSERT ON ${DatabaseContract.ReparacionEntry.TABLE_NAME}
               BEGIN
               UPDATE ${DatabaseContract.VehiculoEntry.TABLE_NAME}
-              SET ${DatabaseContract.VehiculoEntry.COLUMN_ESTADO} = 'EN_REPARACION'
+              SET ${DatabaseContract.VehiculoEntry.COLUMN_ESTADO} = CASE 
+                  WHEN UPPER(NEW.${DatabaseContract.ReparacionEntry.COLUMN_APTO}) = 'S' THEN 'DISPONIBLE'
+                  ELSE 'EN_REPARACION'
+              END
               WHERE ${DatabaseContract.VehiculoEntry.COLUMN_ID} = NEW.${DatabaseContract.ReparacionEntry.COLUMN_ID_VEHICULO};
             END;
         """.trimIndent()
         db.execSQL(trEstadoReparacion)
+
+        val trEstadoReparacionUpdate = """
+        CREATE TRIGGER tr_estado_reparacion_update AFTER UPDATE ON ${DatabaseContract.ReparacionEntry.TABLE_NAME}
+              WHEN UPPER(NEW.${DatabaseContract.ReparacionEntry.COLUMN_APTO}) = 'S'
+              BEGIN
+              UPDATE ${DatabaseContract.VehiculoEntry.TABLE_NAME}
+              SET ${DatabaseContract.VehiculoEntry.COLUMN_ESTADO} = 'DISPONIBLE'
+              WHERE ${DatabaseContract.VehiculoEntry.COLUMN_ID} = NEW.${DatabaseContract.ReparacionEntry.COLUMN_ID_VEHICULO};
+            END;
+        """.trimIndent()
+        db.execSQL(trEstadoReparacionUpdate)
 
         // TRIGGER 8: Bloquear si el vehículo ya tiene una ubicación activa
         val trBloquearDuplicado = """

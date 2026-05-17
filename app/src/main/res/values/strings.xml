@@ -233,4 +233,7 @@
     <string name="btn_modificar">MODIFICAR</string>
     <string name="title_actualizar_importador">Actualizar Importador</string>
     <string name="btn_save_changes">GUARDAR CAMBIOS</string>
+    <string name="dash_available">Disponibles</string>
+    <string name="dash_repair">Reparación</string>
+    <string name="dash_sold">Vendidos</string>
 </resources>
