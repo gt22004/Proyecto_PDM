@@ -42,6 +42,7 @@ android {
                 "src/main/res-layouts/movimientos",
                 "src/main/res-layouts/ventas",
                 "src/main/res-layouts/taller",
+                "src/main/res-layouts/gastos",
                 "src/main/res"
             )
         }

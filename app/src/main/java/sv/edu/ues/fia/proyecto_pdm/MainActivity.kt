@@ -11,6 +11,7 @@ import sv.edu.ues.fia.proyecto_pdm.taller.TallerGestionActivity
 import sv.edu.ues.fia.proyecto_pdm.reparacion.ReparacionGestionActivity
 import sv.edu.ues.fia.proyecto_pdm.importacion.ImportacionMenuActivity
 import sv.edu.ues.fia.proyecto_pdm.vehiculo.VehiculoGestionActivity
+import sv.edu.ues.fia.proyecto_pdm.gastos.GastoAdicionalGestionActivity
 
 
 
@@ -28,6 +29,7 @@ class MainActivity : BaseActivity() {
         val btnIrAImportadores = findViewById<ImageButton>(R.id.btnIrAImportadores)
         val btnIrAImportaciones = findViewById<ImageButton>(R.id.btnIrAImportaciones)
         val btnIrAVehiculo = findViewById<ImageButton>(R.id.btnIrAVehiculo)
+        val btnIrAGastos = findViewById<ImageButton>(R.id.btnIrAGastos)
         
 
         btnIrAMovimientosHub.setOnClickListener {
@@ -64,6 +66,10 @@ class MainActivity : BaseActivity() {
 
         btnIrAVehiculo.setOnClickListener {
             startActivity(Intent(this, VehiculoGestionActivity::class.java))
+        }
+
+        btnIrAGastos.setOnClickListener {
+            startActivity(Intent(this, GastoAdicionalGestionActivity::class.java))
         }
         
     }

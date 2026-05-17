@@ -134,4 +134,13 @@ object DatabaseContract {
         const val COLUMN_IMAGEN = "Imagen"
         const val COLUMN_FECHA = "FechaEstado"
     }
+
+    object GastoAdicionalEntry {
+        const val TABLE_NAME = "Gasto_Adicional"
+        const val COLUMN_ID = "IdGasto"
+        const val COLUMN_ID_VEHICULO = "IdVehiculo"
+        const val COLUMN_CONCEPTO = "Concepto"
+        const val COLUMN_MONTO = "Monto"
+        const val COLUMN_FECHA = "FechaGasto"
+    }
 }

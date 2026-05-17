@@ -18,6 +18,7 @@
     <string name="menu_importadores">IMPORTING AGENTS</string>
     <string name="menu_importaciones">IMPORTATIONS</string>
     <string name="menu_vehiculos">VEHICLES</string>
+    <string name="menu_gastos">EXPENSES</string>
 
     <!-- Login -->
     <string name="login_title">ENTER CREDENTIALS</string>
@@ -152,4 +153,24 @@
     <string name="title_actualizar_ubicacion">Update Location</string>
     <string name="title_eliminar_ubicacion">Delete Location</string>
     <string name="label_id_ubicacion">Location ID</string>
+
+    <!-- Additional Expenses -->
+    <string name="title_gestion_gastos">Additional Expenses Management</string>
+    <string name="label_id_gasto">Expense ID</string>
+    <string name="label_concepto">Concept</string>
+    <string name="label_monto">Amount</string>
+    <string name="label_fecha_gasto">Date (YYYY-MM-DD)</string>
+    <string name="btn_insertar_gasto">INSERT EXPENSE</string>
+    <string name="btn_consultar_gasto">CONSULT EXPENSE</string>
+    <string name="btn_actualizar_gasto">UPDATE EXPENSE</string>
+    <string name="btn_eliminar_gasto">DELETE EXPENSE</string>
+    <string name="gasto_guardado">Expense saved successfully</string>
+    <string name="gasto_actualizado">Expense updated</string>
+    <string name="gasto_eliminado">Expense deleted</string>
+    <string name="gasto_no_encontrado">Expense not found</string>
+    <string name="select_new_gasto_to_insert">Select \'NEW EXPENSE\' to insert</string>
+    <string name="label_new_gasto">--- NEW EXPENSE ---</string>
+    <string name="select_gasto_to_update">Select an expense to update</string>
+    <string name="select_gasto_to_delete">Select an expense to delete</string>
+    <string name="label_historial_gastos">Expense History</string>
 </resources>

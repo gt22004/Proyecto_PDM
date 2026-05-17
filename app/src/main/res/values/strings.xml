@@ -18,6 +18,7 @@
     <string name="menu_importadores">IMPORTADORES</string>
     <string name="menu_importaciones">IMPORTACIONES</string>
     <string name="menu_vehiculos">VEHÍCULOS</string>
+    <string name="menu_gastos">GASTOS</string>
 
     <!-- Login -->
     <string name="login_title">INGRESAR CREDENCIALES</string>
@@ -152,4 +153,24 @@
     <string name="title_actualizar_ubicacion">Actualizar Ubicación</string>
     <string name="title_eliminar_ubicacion">Eliminar Ubicación</string>
     <string name="label_id_ubicacion">ID de Ubicación</string>
+
+    <!-- Gastos Adicionales -->
+    <string name="title_gestion_gastos">Gestión de Gastos Adicionales</string>
+    <string name="label_id_gasto">ID Gasto</string>
+    <string name="label_concepto">Concepto</string>
+    <string name="label_monto">Monto</string>
+    <string name="label_fecha_gasto">Fecha (YYYY-MM-DD)</string>
+    <string name="btn_insertar_gasto">INSERTAR GASTO</string>
+    <string name="btn_consultar_gasto">CONSULTAR GASTO</string>
+    <string name="btn_actualizar_gasto">ACTUALIZAR GASTO</string>
+    <string name="btn_eliminar_gasto">ELIMINAR GASTO</string>
+    <string name="gasto_guardado">Gasto guardado con éxito</string>
+    <string name="gasto_actualizado">Gasto actualizado</string>
+    <string name="gasto_eliminado">Gasto eliminado</string>
+    <string name="gasto_no_encontrado">Gasto no encontrado</string>
+    <string name="select_new_gasto_to_insert">Seleccione \'NUEVO GASTO\' para insertar</string>
+    <string name="label_new_gasto">--- NUEVO GASTO ---</string>
+    <string name="select_gasto_to_update">Seleccione un gasto para actualizar</string>
+    <string name="select_gasto_to_delete">Seleccione un gasto para eliminar</string>
+    <string name="label_historial_gastos">Historial de Gastos</string>
 </resources>
