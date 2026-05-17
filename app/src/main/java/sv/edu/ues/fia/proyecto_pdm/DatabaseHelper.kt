@@ -18,6 +18,20 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                 "${DatabaseContract.UsuarioEntry.COLUMN_PASSWORD} TEXT)"
         db.execSQL(createUsuarioTable)
 
+        val createOpcionCrudTable = "CREATE TABLE ${DatabaseContract.OpcionCrudEntry.TABLE_NAME} (" +
+                "${DatabaseContract.OpcionCrudEntry.COLUMN_ID} TEXT PRIMARY KEY, " +
+                "${DatabaseContract.OpcionCrudEntry.COLUMN_DESCRIPCION} TEXT NOT NULL, " +
+                "${DatabaseContract.OpcionCrudEntry.COLUMN_NUM_CRUD} INTEGER NOT NULL)"
+        db.execSQL(createOpcionCrudTable)
+
+        val createAccesoUsuarioTable = "CREATE TABLE ${DatabaseContract.AccesoUsuarioEntry.TABLE_NAME} (" +
+                "${DatabaseContract.AccesoUsuarioEntry.COLUMN_ID_OPCION} TEXT NOT NULL, " +
+                "${DatabaseContract.AccesoUsuarioEntry.COLUMN_ID_USUARIO} TEXT NOT NULL, " +
+                "PRIMARY KEY (${DatabaseContract.AccesoUsuarioEntry.COLUMN_ID_OPCION}, ${DatabaseContract.AccesoUsuarioEntry.COLUMN_ID_USUARIO}), " +
+                "FOREIGN KEY (${DatabaseContract.AccesoUsuarioEntry.COLUMN_ID_OPCION}) REFERENCES ${DatabaseContract.OpcionCrudEntry.TABLE_NAME}(${DatabaseContract.OpcionCrudEntry.COLUMN_ID}), " +
+                "FOREIGN KEY (${DatabaseContract.AccesoUsuarioEntry.COLUMN_ID_USUARIO}) REFERENCES ${DatabaseContract.UsuarioEntry.TABLE_NAME}(${DatabaseContract.UsuarioEntry.COLUMN_USERNAME}))"
+        db.execSQL(createAccesoUsuarioTable)
+
         val createTelefonoImportadorTable = "CREATE TABLE ${DatabaseContract.TelefonoImportadorEntry.TABLE_NAME} (" +
                 "${DatabaseContract.TelefonoImportadorEntry.COLUMN_ID} INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "${DatabaseContract.TelefonoImportadorEntry.COLUMN_NUI} TEXT NOT NULL, " +
@@ -320,13 +334,15 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         db.execSQL("DROP TABLE IF EXISTS ${DatabaseContract.ImportacionEntry.TABLE_NAME}")
         db.execSQL("DROP TABLE IF EXISTS ${DatabaseContract.EstadoVehicularEntry.TABLE_NAME}")
         db.execSQL("DROP TABLE IF EXISTS ${DatabaseContract.GastoAdicionalEntry.TABLE_NAME}")
+        db.execSQL("DROP TABLE IF EXISTS ${DatabaseContract.AccesoUsuarioEntry.TABLE_NAME}")
+        db.execSQL("DROP TABLE IF EXISTS ${DatabaseContract.OpcionCrudEntry.TABLE_NAME}")
         onCreate(db)
     }
 
     companion object {
         private const val DATABASE_NAME = "proyecto_pdm.db"
 
-        private const val DATABASE_VERSION = 24
+        private const val DATABASE_VERSION = 25
 
         @Volatile
         private var INSTANCE: DatabaseHelper? = null

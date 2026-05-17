@@ -143,4 +143,16 @@ object DatabaseContract {
         const val COLUMN_MONTO = "Monto"
         const val COLUMN_FECHA = "FechaGasto"
     }
+    object OpcionCrudEntry {
+        const val TABLE_NAME = "Opcion_Crud"
+        const val COLUMN_ID = "IdOpcion"
+        const val COLUMN_DESCRIPCION = "DesOpcion"
+        const val COLUMN_NUM_CRUD = "NumCrud"
+    }
+
+    object AccesoUsuarioEntry {
+        const val TABLE_NAME = "Acceso_Usuario"
+        const val COLUMN_ID_OPCION = "IdOpcion"
+        const val COLUMN_ID_USUARIO = "IdUsuario"
+    }
 }

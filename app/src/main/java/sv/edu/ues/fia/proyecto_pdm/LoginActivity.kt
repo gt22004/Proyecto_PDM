@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity
 import sv.edu.ues.fia.proyecto_pdm.usuarios.UsuarioHandler
 import sv.edu.ues.fia.proyecto_pdm.transporte.MedioTransporteHandler
 import sv.edu.ues.fia.proyecto_pdm.transporte.MedioTransporte
+import sv.edu.ues.fia.proyecto_pdm.usuarios.OpcionCrudHandler
+import sv.edu.ues.fia.proyecto_pdm.usuarios.AccesoUsuarioHandler
 import java.util.Locale
 
 class LoginActivity : BaseActivity() {
@@ -108,6 +110,59 @@ class LoginActivity : BaseActivity() {
             correoElectronico = "maria.gonzalez@email.com",
             nuiResponsable = null
         ))
+        // OPCIONES CRUD
+        val opcionHandler = OpcionCrudHandler(this)
+
+// Importador
+        opcionHandler.insertar("010", "Menu Importador", 0)
+        opcionHandler.insertar("011", "Agregar Importador", 1)
+        opcionHandler.insertar("012", "Editar Importador", 2)
+        opcionHandler.insertar("013", "Consultar Importador", 4)
+        opcionHandler.insertar("014", "Eliminar Importador", 3)
+
+// Telefono Importador
+        opcionHandler.insertar("020", "Menu Telefono", 0)
+        opcionHandler.insertar("021", "Agregar Telefono", 1)
+        opcionHandler.insertar("022", "Editar Telefono", 2)
+        opcionHandler.insertar("023", "Consultar Telefono", 4)
+        opcionHandler.insertar("024", "Eliminar Telefono", 3)
+
+// Venta
+        opcionHandler.insertar("030", "Menu Venta", 0)
+        opcionHandler.insertar("031", "Agregar Venta", 1)
+        opcionHandler.insertar("032", "Editar Venta", 2)
+        opcionHandler.insertar("033", "Consultar Venta", 4)
+        opcionHandler.insertar("034", "Eliminar Venta", 3)
+
+// ACCESO USUARIO
+        val accesoHandler = AccesoUsuarioHandler(this)
+
+// Admin tiene acceso a todo
+        accesoHandler.insertar("010", "admin")
+        accesoHandler.insertar("011", "admin")
+        accesoHandler.insertar("012", "admin")
+        accesoHandler.insertar("013", "admin")
+        accesoHandler.insertar("014", "admin")
+        accesoHandler.insertar("020", "admin")
+        accesoHandler.insertar("021", "admin")
+        accesoHandler.insertar("022", "admin")
+        accesoHandler.insertar("023", "admin")
+        accesoHandler.insertar("024", "admin")
+        accesoHandler.insertar("030", "admin")
+        accesoHandler.insertar("031", "admin")
+        accesoHandler.insertar("032", "admin")
+        accesoHandler.insertar("033", "admin")
+        accesoHandler.insertar("034", "admin")
+
+// Consultor solo puede consultar, sin eliminar
+        usuarioHandler.insertarUsuario("consultor", "con01")
+        accesoHandler.insertar("010", "consultor")
+        accesoHandler.insertar("013", "consultor")
+        accesoHandler.insertar("020", "consultor")
+        accesoHandler.insertar("023", "consultor")
+        accesoHandler.insertar("030", "consultor")
+        accesoHandler.insertar("033", "consultor")
+
         Toast.makeText(this, getString(R.string.db_filled), Toast.LENGTH_LONG).show()
     }
 }
