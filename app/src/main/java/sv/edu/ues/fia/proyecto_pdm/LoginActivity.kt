@@ -42,6 +42,13 @@ class LoginActivity : BaseActivity() {
             val pass = editPass.text.toString()
 
             if (usuarioHandler.validarLogin(user, pass)) {
+                // Guardar usuario en SharedPreferences
+                val sharedPref = getSharedPreferences("nombre_usuario", Context.MODE_PRIVATE)
+                with(sharedPref.edit()) {
+                    putString("username", user)
+                    apply()
+                }
+
                 Toast.makeText(this, getString(R.string.login_success), Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
@@ -112,56 +119,39 @@ class LoginActivity : BaseActivity() {
         ))
         // OPCIONES CRUD
         val opcionHandler = OpcionCrudHandler(this)
+        val entities = listOf(
+            "Importador", "Telefono", "Venta", "Vehiculo", "Medio Transporte",
+            "Bodega", "Seccion", "Ubicacion", "Taller", "Reparacion",
+            "Movimiento", "Importacion", "Estado Vehicular", "Gasto Adicional"
+        )
 
-// Importador
-        opcionHandler.insertar("010", "Menu Importador", 0)
-        opcionHandler.insertar("011", "Agregar Importador", 1)
-        opcionHandler.insertar("012", "Editar Importador", 2)
-        opcionHandler.insertar("013", "Consultar Importador", 4)
-        opcionHandler.insertar("014", "Eliminar Importador", 3)
+        for ((index, entity) in entities.withIndex()) {
+            val prefix = (index + 1).toString().padStart(2, '0')
+            opcionHandler.insertar("${prefix}0", "Menu $entity", 0)
+            opcionHandler.insertar("${prefix}1", "Agregar $entity", 1)
+            opcionHandler.insertar("${prefix}2", "Editar $entity", 2)
+            opcionHandler.insertar("${prefix}3", "Consultar $entity", 4)
+            opcionHandler.insertar("${prefix}4", "Eliminar $entity", 3)
+        }
 
-// Telefono Importador
-        opcionHandler.insertar("020", "Menu Telefono", 0)
-        opcionHandler.insertar("021", "Agregar Telefono", 1)
-        opcionHandler.insertar("022", "Editar Telefono", 2)
-        opcionHandler.insertar("023", "Consultar Telefono", 4)
-        opcionHandler.insertar("024", "Eliminar Telefono", 3)
-
-// Venta
-        opcionHandler.insertar("030", "Menu Venta", 0)
-        opcionHandler.insertar("031", "Agregar Venta", 1)
-        opcionHandler.insertar("032", "Editar Venta", 2)
-        opcionHandler.insertar("033", "Consultar Venta", 4)
-        opcionHandler.insertar("034", "Eliminar Venta", 3)
-
-// ACCESO USUARIO
+        // ACCESO USUARIO
         val accesoHandler = AccesoUsuarioHandler(this)
 
-// Admin tiene acceso a todo
-        accesoHandler.insertar("010", "admin")
-        accesoHandler.insertar("011", "admin")
-        accesoHandler.insertar("012", "admin")
-        accesoHandler.insertar("013", "admin")
-        accesoHandler.insertar("014", "admin")
-        accesoHandler.insertar("020", "admin")
-        accesoHandler.insertar("021", "admin")
-        accesoHandler.insertar("022", "admin")
-        accesoHandler.insertar("023", "admin")
-        accesoHandler.insertar("024", "admin")
-        accesoHandler.insertar("030", "admin")
-        accesoHandler.insertar("031", "admin")
-        accesoHandler.insertar("032", "admin")
-        accesoHandler.insertar("033", "admin")
-        accesoHandler.insertar("034", "admin")
+        // Admin tiene acceso a todo
+        for (i in 1..entities.size) {
+            val prefix = i.toString().padStart(2, '0')
+            for (j in 0..4) {
+                accesoHandler.insertar("$prefix$j", "admin")
+            }
+        }
 
-// Consultor solo puede consultar, sin eliminar
-        usuarioHandler.insertarUsuario("consultor", "con01")
-        accesoHandler.insertar("010", "consultor")
-        accesoHandler.insertar("013", "consultor")
-        accesoHandler.insertar("020", "consultor")
-        accesoHandler.insertar("023", "consultor")
-        accesoHandler.insertar("030", "consultor")
-        accesoHandler.insertar("033", "consultor")
+        // Consultor solo tiene acceso a Menu y Consultar
+        usuarioHandler.insertarUsuario("con", "con01")
+        for (i in 1..entities.size) {
+            val prefix = i.toString().padStart(2, '0')
+            accesoHandler.insertar("${prefix}0", "consultor") // Menu
+            accesoHandler.insertar("${prefix}3", "consultor") // Consultar
+        }
 
         Toast.makeText(this, getString(R.string.db_filled), Toast.LENGTH_LONG).show()
     }
