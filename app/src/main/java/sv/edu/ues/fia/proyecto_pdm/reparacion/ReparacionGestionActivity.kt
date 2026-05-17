@@ -10,13 +10,14 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import sv.edu.ues.fia.proyecto_pdm.BaseActivity
 import sv.edu.ues.fia.proyecto_pdm.R
 import sv.edu.ues.fia.proyecto_pdm.Vehiculo
 import sv.edu.ues.fia.proyecto_pdm.VehiculoHandler
 import sv.edu.ues.fia.proyecto_pdm.taller.Taller
 import sv.edu.ues.fia.proyecto_pdm.taller.TallerHandler
 
-class ReparacionGestionActivity : AppCompatActivity() {
+class ReparacionGestionActivity : BaseActivity() {
 
     private lateinit var handler: ReparacionHandler
     private lateinit var tallerHandler: TallerHandler

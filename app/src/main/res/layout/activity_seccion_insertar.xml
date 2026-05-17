@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Insertar Nueva Sección"
+        android:text="@string/btn_insertar_seccion"
         android:textSize="24sp"
         android:textStyle="bold"
         android:gravity="center"
@@ -20,7 +20,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Seleccione Bodega:"
+        android:text="@string/label_seleccione_bodega"
         android:layout_marginBottom="4dp"/>
 
     <Spinner
@@ -33,23 +33,25 @@
         android:id="@+id/editNivel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nivel (Número)"
+        android:hint="@string/label_nivel"
         android:inputType="number"
-        android:layout_marginBottom="12dp"/>
+        android:layout_marginBottom="12dp"
+        android:autofillHints="none"/>
 
     <EditText
         android:id="@+id/editCapacidadSeccion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Capacidad Máxima de Vehículos"
+        android:hint="@string/label_capacidad_vehiculos"
         android:inputType="number"
-        android:layout_marginBottom="24dp"/>
+        android:layout_marginBottom="24dp"
+        android:autofillHints="none"/>
 
     <Button
         android:id="@+id/btnGuardarSeccion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Guardar Sección" />
+        android:text="@string/btn_save" />
 
     <Button
         android:id="@+id/btnLimpiarSeccion"

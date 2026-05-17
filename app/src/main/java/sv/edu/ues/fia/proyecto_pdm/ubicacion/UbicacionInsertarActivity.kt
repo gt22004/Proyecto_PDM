@@ -11,6 +11,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import sv.edu.ues.fia.proyecto_pdm.BaseActivity
 import sv.edu.ues.fia.proyecto_pdm.R
 import sv.edu.ues.fia.proyecto_pdm.Vehiculo
 import sv.edu.ues.fia.proyecto_pdm.VehiculoHandler
@@ -19,7 +20,7 @@ import sv.edu.ues.fia.proyecto_pdm.seccion.SeccionHandler
 import java.time.LocalDate
 import java.util.Calendar
 
-class UbicacionInsertarActivity : AppCompatActivity() {
+class UbicacionInsertarActivity : BaseActivity() {
 
     private lateinit var ubicacionHandler: UbicacionHandler
     private lateinit var vehiculoHandler: VehiculoHandler

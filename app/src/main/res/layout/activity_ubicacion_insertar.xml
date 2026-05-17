@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Asignar Ubicación a Vehículo"
+        android:text="@string/title_asignacion_ubicaciones"
         android:textSize="24sp"
         android:textStyle="bold"
         android:gravity="center"
@@ -20,7 +20,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Seleccione Vehículo:"
+        android:text="@string/label_seleccione_vehiculo"
         android:layout_marginBottom="4dp"/>
 
     <Spinner
@@ -32,7 +32,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Seleccione Sección de Bodega:"
+        android:text="@string/label_seleccione_seccion"
         android:layout_marginBottom="4dp"/>
 
     <Spinner
@@ -45,16 +45,18 @@
         android:id="@+id/editFechaAsignacion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Fecha (YYYY-MM-DD)"
+        android:hint="@string/label_fecha_asignacion"
         android:focusable="false"
         android:clickable="true"
-        android:layout_marginBottom="24dp"/>
+        android:layout_marginBottom="24dp"
+        android:autofillHints="none"
+        android:inputType="date"/>
 
     <Button
         android:id="@+id/btnGuardarUbicacion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Asignar Ubicación" />
+        android:text="@string/btn_save" />
 
     <Button
         android:id="@+id/btnLimpiarUbicacion"

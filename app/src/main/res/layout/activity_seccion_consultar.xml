@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
+    android:id="@+id/main"
     tools:context=".seccion.SeccionConsultarActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Consultar Sección"
+        android:text="@string/title_consultar_seccion"
         android:textSize="24sp"
         android:textStyle="bold"
         android:gravity="center"
@@ -21,21 +21,22 @@
         android:id="@+id/editConsultarIdSeccion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ingrese ID de Sección"
+        android:hint="@string/label_id_seccion"
         android:inputType="number"
-        android:layout_marginBottom="12dp"/>
+        android:layout_marginBottom="12dp"
+        android:autofillHints="none"/>
 
     <Button
         android:id="@+id/btnConsultarSeccion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Consultar" />
+        android:text="@string/btn_search" />
 
     <TextView
         android:id="@+id/textResultadoSeccion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Resultado..."
+        android:text="@string/label_result"
         android:textSize="18sp"
         android:layout_marginTop="24dp"
         android:padding="8dp"

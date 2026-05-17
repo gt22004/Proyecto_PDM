@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
+    android:id="@+id/main"
     tools:context=".bodega.BodegaActualizarActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Actualizar Bodega"
+        android:text="@string/title_actualizar_bodega"
         android:textSize="24sp"
         android:textStyle="bold"
         android:gravity="center"
@@ -21,61 +21,64 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginBottom="12dp">
+        android:layout_marginBottom="16dp">
+
         <EditText
-            android:id="@+id/editIdBodega"
+            android:id="@+id/editActualizarIdBodega"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="ID de Bodega"
-            android:inputType="number"/>
+            android:hint="@string/label_id_bodega"
+            android:inputType="number"
+            android:autofillHints="none"/>
+
         <Button
             android:id="@+id/btnCargarBodega"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cargar"/>
+            android:text="@string/btn_load" />
     </LinearLayout>
 
     <EditText
-        android:id="@+id/editNombreBodega"
+        android:id="@+id/editActualizarNombreBodega"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nuevo Nombre"
+        android:hint="@string/label_nombre_bodega"
         android:inputType="text"
         android:layout_marginBottom="12dp"
-        android:enabled="false"/>
+        android:autofillHints="name"/>
 
     <EditText
-        android:id="@+id/editDepartamento"
+        android:id="@+id/editActualizarDepartamento"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nuevo Departamento"
+        android:hint="@string/label_departamento"
         android:inputType="text"
         android:layout_marginBottom="12dp"
-        android:enabled="false"/>
+        android:autofillHints="postalAddress"/>
 
     <EditText
-        android:id="@+id/editDireccion"
+        android:id="@+id/editActualizarDireccion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nueva Dirección"
+        android:hint="@string/label_direccion"
         android:inputType="text"
+        android:layout_marginBottom="12dp"
+        android:autofillHints="streetAddress"/>
+
+    <EditText
+        android:id="@+id/editActualizarCapacidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/label_capacidad_secciones"
+        android:inputType="number"
         android:layout_marginBottom="24dp"
-        android:enabled="false"/>
+        android:autofillHints="none"/>
 
     <Button
         android:id="@+id/btnActualizarBodega"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Actualizar Datos"
-        android:enabled="false"/>
-
-    <Button
-        android:id="@+id/btnLimpiarActualizar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Limpiar"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_marginTop="8dp"/>
+        android:text="@string/btn_save" />
 
 </LinearLayout>

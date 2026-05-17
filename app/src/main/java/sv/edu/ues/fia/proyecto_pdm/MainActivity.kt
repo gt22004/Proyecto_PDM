@@ -14,7 +14,7 @@ import sv.edu.ues.fia.proyecto_pdm.vehiculo.VehiculoGestionActivity
 
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

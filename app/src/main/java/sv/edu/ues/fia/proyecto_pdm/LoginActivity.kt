@@ -13,7 +13,7 @@ import sv.edu.ues.fia.proyecto_pdm.transporte.MedioTransporteHandler
 import sv.edu.ues.fia.proyecto_pdm.transporte.MedioTransporte
 import java.util.Locale
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseActivity() {
 
     private lateinit var usuarioHandler: UsuarioHandler
     private lateinit var medioHandler: MedioTransporteHandler
@@ -61,18 +61,14 @@ class LoginActivity : AppCompatActivity() {
     private fun toggleLanguage() {
         val currentLocale = resources.configuration.locales.get(0).language
         val newLang = if (currentLocale == "es") "en" else "es"
-        
-        val locale = Locale(newLang)
-        Locale.setDefault(locale)
-        val config = Configuration()
-        config.setLocale(locale)
-        
-        baseContext.resources.updateConfiguration(config, baseContext.resources.displayMetrics)
-        
+
+        LocaleHelper.setLocale(this, newLang)
+
         // Restart activity to apply changes
-        val intent = intent
-        finish()
+        val intent = Intent(this, LoginActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)
+        finish()
     }
 
     private fun llenarBaseDatos() {

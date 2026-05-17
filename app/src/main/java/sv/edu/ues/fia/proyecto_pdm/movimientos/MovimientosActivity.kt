@@ -4,10 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
+import sv.edu.ues.fia.proyecto_pdm.BaseActivity
 import sv.edu.ues.fia.proyecto_pdm.R
 import sv.edu.ues.fia.proyecto_pdm.transporte.GestionTransporteActivity
 
-class MovimientosActivity : AppCompatActivity() {
+class MovimientosActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

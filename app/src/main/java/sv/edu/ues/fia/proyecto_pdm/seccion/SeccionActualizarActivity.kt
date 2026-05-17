@@ -10,11 +10,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import sv.edu.ues.fia.proyecto_pdm.BaseActivity
 import sv.edu.ues.fia.proyecto_pdm.R
 import sv.edu.ues.fia.proyecto_pdm.bodega.Bodega
 import sv.edu.ues.fia.proyecto_pdm.bodega.BodegaHandler
 
-class SeccionActualizarActivity : AppCompatActivity() {
+class SeccionActualizarActivity : BaseActivity() {
 
     private lateinit var seccionHandler: SeccionHandler
     private lateinit var bodegaHandler: BodegaHandler

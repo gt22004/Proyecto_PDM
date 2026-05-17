@@ -12,7 +12,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Asignación de Ubicaciones"
+        android:text="@string/title_asignacion_ubicaciones"
         android:textSize="28sp"
         android:textStyle="bold"
         android:layout_marginBottom="40dp"/>
@@ -21,28 +21,28 @@
         android:id="@+id/btnUbicacionInsertar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="ASIGNAR NUEVA UBICACIÓN"
+        android:text="@string/btn_asignar_nueva_ubicacion"
         android:layout_marginBottom="12dp"/>
 
     <Button
         android:id="@+id/btnUbicacionConsultar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="CONSULTAR UBICACIÓN"
+        android:text="@string/btn_consultar_ubicacion"
         android:layout_marginBottom="12dp"/>
 
     <Button
         android:id="@+id/btnUbicacionActualizar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="ACTUALIZAR UBICACIÓN"
+        android:text="@string/btn_actualizar_ubicacion"
         android:layout_marginBottom="12dp"/>
 
     <Button
         android:id="@+id/btnUbicacionEliminar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="ELIMINAR UBICACIÓN"
+        android:text="@string/btn_eliminar_ubicacion"
         android:backgroundTint="#FF5252"
         android:textColor="#FFFFFF"/>
 

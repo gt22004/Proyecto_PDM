@@ -7,9 +7,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import sv.edu.ues.fia.proyecto_pdm.BaseActivity
 import sv.edu.ues.fia.proyecto_pdm.R
 
-class UbicacionMenuActivity : AppCompatActivity() {
+class UbicacionMenuActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

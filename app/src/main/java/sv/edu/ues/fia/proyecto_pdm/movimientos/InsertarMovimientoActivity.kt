@@ -9,12 +9,13 @@ import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import sv.edu.ues.fia.proyecto_pdm.BaseActivity
 import sv.edu.ues.fia.proyecto_pdm.R
 import sv.edu.ues.fia.proyecto_pdm.transporte.MedioTransporteHandler
 import sv.edu.ues.fia.proyecto_pdm.transporte.MedioTransporte
 import java.util.Calendar
 
-class InsertarMovimientoActivity : AppCompatActivity() {
+class InsertarMovimientoActivity : BaseActivity() {
 
     private lateinit var movHandler: MovimientoHandler
     private lateinit var medioHandler: MedioTransporteHandler

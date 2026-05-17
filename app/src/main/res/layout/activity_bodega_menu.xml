@@ -12,7 +12,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Gestión de Bodegas"
+        android:text="@string/title_gestion_bodegas"
         android:textSize="28sp"
         android:textStyle="bold"
         android:layout_marginBottom="40dp"/>
@@ -21,28 +21,28 @@
         android:id="@+id/btnMenuInsertar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="INSERTAR BODEGA"
+        android:text="@string/btn_insertar_bodega"
         android:layout_marginBottom="12dp"/>
 
     <Button
         android:id="@+id/btnMenuConsultar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="CONSULTAR BODEGA"
+        android:text="@string/btn_consultar_bodega"
         android:layout_marginBottom="12dp"/>
 
     <Button
         android:id="@+id/btnMenuActualizar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="ACTUALIZAR BODEGA"
+        android:text="@string/btn_actualizar_bodega"
         android:layout_marginBottom="12dp"/>
 
     <Button
         android:id="@+id/btnMenuEliminar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="ELIMINAR BODEGA"
+        android:text="@string/btn_eliminar_bodega"
         android:backgroundTint="#FF5252"
         android:textColor="#FFFFFF"
         android:layout_marginBottom="40dp"/>
@@ -57,7 +57,7 @@
         android:id="@+id/btnGestionSecciones"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="GESTIÓN DE SECCIONES"
+        android:text="@string/title_gestion_secciones"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_marginBottom="12dp"/>
 
@@ -65,7 +65,7 @@
         android:id="@+id/btnGestionUbicaciones"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="ASIGNAR UBICACIONES"
+        android:text="@string/title_asignacion_ubicaciones"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
 </LinearLayout>

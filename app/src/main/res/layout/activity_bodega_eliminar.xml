@@ -1,46 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
+    android:id="@+id/main"
     tools:context=".bodega.BodegaEliminarActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Eliminar Bodega"
+        android:text="@string/title_eliminar_bodega"
         android:textSize="24sp"
         android:textStyle="bold"
         android:gravity="center"
         android:layout_marginBottom="24dp"/>
 
     <EditText
-        android:id="@+id/editIdBodega"
+        android:id="@+id/editEliminarIdBodega"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="ID de Bodega a eliminar"
+        android:hint="@string/label_id_bodega"
         android:inputType="number"
-        android:layout_marginBottom="12dp"/>
+        android:layout_marginBottom="24dp"
+        android:autofillHints="none"/>
 
     <Button
         android:id="@+id/btnEliminarBodega"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Eliminar Permanentemente"
+        android:text="@string/btn_delete"
         android:backgroundTint="#FF5252"
-        android:textColor="#FFFFFF" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="¡Atención! Esta acción no se puede deshacer."
-        android:textColor="#FF0000"
-        android:gravity="center"
-        android:layout_marginTop="12dp"
-        android:textSize="12sp"
-        android:textStyle="italic"/>
+        android:textColor="#FFFFFF"/>
 
 </LinearLayout>

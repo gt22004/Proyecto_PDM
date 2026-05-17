@@ -12,7 +12,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Gestión de Secciones"
+        android:text="@string/title_gestion_secciones"
         android:textSize="28sp"
         android:textStyle="bold"
         android:layout_marginBottom="40dp"/>
@@ -21,28 +21,28 @@
         android:id="@+id/btnSeccionInsertar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="INSERTAR SECCIÓN"
+        android:text="@string/btn_insertar_seccion"
         android:layout_marginBottom="12dp"/>
 
     <Button
         android:id="@+id/btnSeccionConsultar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="CONSULTAR SECCIÓN"
+        android:text="@string/btn_consultar_seccion"
         android:layout_marginBottom="12dp"/>
 
     <Button
         android:id="@+id/btnSeccionActualizar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="ACTUALIZAR SECCIÓN"
+        android:text="@string/btn_actualizar_seccion"
         android:layout_marginBottom="12dp"/>
 
     <Button
         android:id="@+id/btnSeccionEliminar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="ELIMINAR SECCIÓN"
+        android:text="@string/btn_eliminar_seccion"
         android:backgroundTint="#FF5252"
         android:textColor="#FFFFFF"/>
 

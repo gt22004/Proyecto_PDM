@@ -8,9 +8,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import sv.edu.ues.fia.proyecto_pdm.BaseActivity
 import sv.edu.ues.fia.proyecto_pdm.R
 
-class BodegaInsertarActivity : AppCompatActivity() {
+class BodegaInsertarActivity : BaseActivity() {
 
     private lateinit var helper: BodegaHandler
     private lateinit var editNombreBodega: EditText

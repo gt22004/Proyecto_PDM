@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Insertar Nueva Bodega"
+        android:text="@string/btn_insertar_bodega"
         android:textSize="24sp"
         android:textStyle="bold"
         android:gravity="center"
@@ -21,39 +21,43 @@
         android:id="@+id/editNombreBodega"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nombre de la Bodega"
+        android:hint="@string/label_nombre_bodega"
         android:inputType="text"
-        android:layout_marginBottom="12dp"/>
+        android:layout_marginBottom="12dp"
+        android:autofillHints="name"/>
 
     <EditText
         android:id="@+id/editDepartamento"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Departamento"
+        android:hint="@string/label_departamento"
         android:inputType="text"
-        android:layout_marginBottom="12dp"/>
+        android:layout_marginBottom="12dp"
+        android:autofillHints="postalAddress"/>
 
     <EditText
         android:id="@+id/editDireccion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Dirección"
+        android:hint="@string/label_direccion"
         android:inputType="text"
-        android:layout_marginBottom="12dp"/>
+        android:layout_marginBottom="12dp"
+        android:autofillHints="streetAddress"/>
 
     <EditText
         android:id="@+id/editCapacidadBodega"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Capacidad Máxima de Secciones"
+        android:hint="@string/label_capacidad_secciones"
         android:inputType="number"
-        android:layout_marginBottom="24dp"/>
+        android:layout_marginBottom="24dp"
+        android:autofillHints="none"/>
 
     <Button
         android:id="@+id/btnGuardarBodega"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Guardar Bodega" />
+        android:text="@string/btn_save" />
 
     <Button
         android:id="@+id/btnLimpiarBodega"

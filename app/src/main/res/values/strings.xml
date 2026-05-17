@@ -97,4 +97,59 @@
     <string name="select_veh_error">Seleccione un vehículo de la lista y escriba el nuevo ID</string>
     <string name="veh_deleted_from_mov">Vehículo eliminado del movimiento</string>
     <string name="select_from_list">Seleccione un vehículo de la lista</string>
+    <!-- Bodegas -->
+    <string name="title_gestion_bodegas">Gestión de Bodegas</string>
+    <string name="btn_insertar_bodega">INSERTAR BODEGA</string>
+    <string name="btn_consultar_bodega">CONSULTAR BODEGA</string>
+    <string name="btn_actualizar_bodega">ACTUALIZAR BODEGA</string>
+    <string name="btn_eliminar_bodega">ELIMINAR BODEGA</string>
+    <string name="label_nombre_bodega">Nombre de la Bodega</string>
+    <string name="label_departamento">Departamento</string>
+    <string name="label_direccion">Dirección</string>
+    <string name="label_capacidad_secciones">Capacidad Máxima de Secciones</string>
+    <string name="msg_bodega_guardada">Bodega guardada con éxito. ID Generado: %1$d</string>
+
+    <!-- Secciones -->
+    <string name="title_gestion_secciones">Gestión de Secciones</string>
+    <string name="btn_insertar_seccion">INSERTAR SECCIÓN</string>
+    <string name="btn_consultar_seccion">CONSULTAR SECCIÓN</string>
+    <string name="btn_actualizar_seccion">ACTUALIZAR SECCIÓN</string>
+    <string name="btn_eliminar_seccion">ELIMINAR SECCIÓN</string>
+    <string name="label_seleccione_bodega">Seleccione Bodega:</string>
+    <string name="label_nivel">Nivel (Número)</string>
+    <string name="label_capacidad_vehiculos">Capacidad Máxima de Vehículos</string>
+
+    <!-- Ubicaciones -->
+    <string name="title_asignacion_ubicaciones">Asignación de Ubicaciones</string>
+    <string name="btn_asignar_nueva_ubicacion">ASIGNAR NUEVA UBICACIÓN</string>
+    <string name="btn_consultar_ubicacion">CONSULTAR UBICACIÓN</string>
+    <string name="btn_actualizar_ubicacion">ACTUALIZAR UBICACIÓN</string>
+    <string name="btn_eliminar_ubicacion">ELIMINAR UBICACIÓN</string>
+    <string name="label_seleccione_vehiculo">Seleccione Vehículo:</string>
+    <string name="label_seleccione_seccion">Seleccione Sección de Bodega:</string>
+    <string name="label_fecha_asignacion">Fecha (YYYY-MM-DD)</string>
+    <!-- Etiquetas Generales -->
+    <string name="btn_search">BUSCAR</string>
+    <string name="btn_load">CARGAR</string>
+    <string name="btn_clean">LIMPIAR</string>
+    <string name="label_result">Resultado...</string>
+    <string name="hint_enter_id">Ingrese ID</string>
+
+    <!-- Bodegas -->
+    <string name="title_consultar_bodega">Consultar Bodega</string>
+    <string name="title_actualizar_bodega">Actualizar Bodega</string>
+    <string name="title_eliminar_bodega">Eliminar Bodega</string>
+    <string name="label_id_bodega">ID de Bodega</string>
+
+    <!-- Secciones -->
+    <string name="title_consultar_seccion">Consultar Sección</string>
+    <string name="title_actualizar_seccion">Actualizar Sección</string>
+    <string name="title_eliminar_seccion">Eliminar Sección</string>
+    <string name="label_id_seccion">ID de Sección</string>
+
+    <!-- Ubicaciones -->
+    <string name="title_consultar_ubicacion">Consultar Ubicación</string>
+    <string name="title_actualizar_ubicacion">Actualizar Ubicación</string>
+    <string name="title_eliminar_ubicacion">Eliminar Ubicación</string>
+    <string name="label_id_ubicacion">ID de Ubicación</string>
 </resources>

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
+    android:id="@+id/main"
     tools:context=".ubicacion.UbicacionEliminarActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Eliminar Ubicación"
+        android:text="@string/title_eliminar_ubicacion"
         android:textSize="24sp"
         android:textStyle="bold"
         android:gravity="center"
@@ -21,15 +21,16 @@
         android:id="@+id/editEliminarIdUbicacion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="ID de Ubicación a eliminar"
+        android:hint="@string/label_id_ubicacion"
         android:inputType="number"
-        android:layout_marginBottom="24dp"/>
+        android:layout_marginBottom="24dp"
+        android:autofillHints="none"/>
 
     <Button
         android:id="@+id/btnEliminarUbicacion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Eliminar Ubicación"
+        android:text="@string/btn_delete"
         android:backgroundTint="#FF5252"
         android:textColor="#FFFFFF"/>
 

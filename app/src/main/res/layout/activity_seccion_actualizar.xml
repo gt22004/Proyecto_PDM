@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
+    android:id="@+id/main"
     tools:context=".seccion.SeccionActualizarActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Actualizar Sección"
+        android:text="@string/title_actualizar_seccion"
         android:textSize="24sp"
         android:textStyle="bold"
         android:gravity="center"
@@ -28,20 +28,21 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="ID de Sección"
-            android:inputType="number" />
+            android:hint="@string/label_id_seccion"
+            android:inputType="number"
+            android:autofillHints="none"/>
 
         <Button
             android:id="@+id/btnCargarSeccion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cargar" />
+            android:text="@string/btn_load" />
     </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Seleccione Bodega:"
+        android:text="@string/label_seleccione_bodega"
         android:layout_marginBottom="4dp"/>
 
     <Spinner
@@ -54,22 +55,24 @@
         android:id="@+id/editActualizarNivel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nuevo Nivel"
+        android:hint="@string/label_nivel"
         android:inputType="number"
-        android:layout_marginBottom="12dp"/>
+        android:layout_marginBottom="12dp"
+        android:autofillHints="none"/>
 
     <EditText
         android:id="@+id/editActualizarCapacidadSeccion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nueva Capacidad Máxima"
+        android:hint="@string/label_capacidad_vehiculos"
         android:inputType="number"
-        android:layout_marginBottom="24dp"/>
+        android:layout_marginBottom="24dp"
+        android:autofillHints="none"/>
 
     <Button
         android:id="@+id/btnActualizarSeccion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Guardar Cambios" />
+        android:text="@string/btn_save" />
 
 </LinearLayout>

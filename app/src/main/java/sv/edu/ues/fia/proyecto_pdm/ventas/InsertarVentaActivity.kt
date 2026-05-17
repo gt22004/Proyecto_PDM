@@ -8,13 +8,14 @@ import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import sv.edu.ues.fia.proyecto_pdm.BaseActivity
 import sv.edu.ues.fia.proyecto_pdm.R
 import sv.edu.ues.fia.proyecto_pdm.VehiculoHandler
 import sv.edu.ues.fia.proyecto_pdm.ImportadorHandler
 import sv.edu.ues.fia.proyecto_pdm.Importador
 import java.util.Calendar
 
-class InsertarVentaActivity : AppCompatActivity() {
+class InsertarVentaActivity : BaseActivity() {
 
     private lateinit var ventaHandler: VentaHandler
     private lateinit var vehiculoHandler: VehiculoHandler

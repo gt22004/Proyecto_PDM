@@ -3,10 +3,11 @@ package sv.edu.ues.fia.proyecto_pdm.movimientos
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import sv.edu.ues.fia.proyecto_pdm.BaseActivity
 import sv.edu.ues.fia.proyecto_pdm.R
 import sv.edu.ues.fia.proyecto_pdm.VehiculoHandler
 
-class GestionVehiculosMovimientoActivity : AppCompatActivity() {
+class GestionVehiculosMovimientoActivity : BaseActivity() {
 
     private lateinit var movHandler: MovimientoHandler
     private lateinit var vehHandler: VehiculoHandler

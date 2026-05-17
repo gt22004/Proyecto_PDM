@@ -8,9 +8,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import sv.edu.ues.fia.proyecto_pdm.BaseActivity
 import sv.edu.ues.fia.proyecto_pdm.R
 
-class TallerGestionActivity : AppCompatActivity() {
+class TallerGestionActivity : BaseActivity() {
 
     private lateinit var handler: TallerHandler
     private var tallerActual: Taller? = null

@@ -97,4 +97,59 @@
     <string name="select_veh_error">Select a vehicle from list and enter new ID</string>
     <string name="veh_deleted_from_mov">Vehicle deleted from movement</string>
     <string name="select_from_list">Select a vehicle from list</string>
+    <!-- Bodegas -->
+    <string name="title_gestion_bodegas">Warehouse Management</string>
+    <string name="btn_insertar_bodega">INSERT WAREHOUSE</string>
+    <string name="btn_consultar_bodega">CONSULT WAREHOUSE</string>
+    <string name="btn_actualizar_bodega">UPDATE WAREHOUSE</string>
+    <string name="btn_eliminar_bodega">DELETE WAREHOUSE</string>
+    <string name="label_nombre_bodega">Warehouse Name</string>
+    <string name="label_departamento">Department</string>
+    <string name="label_direccion">Address</string>
+    <string name="label_capacidad_secciones">Max Section Capacity</string>
+    <string name="msg_bodega_guardada">Warehouse saved successfully. Generated ID: %1$d</string>
+
+    <!-- Secciones -->
+    <string name="title_gestion_secciones">Section Management</string>
+    <string name="btn_insertar_seccion">INSERT SECTION</string>
+    <string name="btn_consultar_seccion">CONSULT SECTION</string>
+    <string name="btn_actualizar_seccion">UPDATE SECTION</string>
+    <string name="btn_eliminar_seccion">DELETE SECTION</string>
+    <string name="label_seleccione_bodega">Select Warehouse:</string>
+    <string name="label_nivel">Level (Number)</string>
+    <string name="label_capacidad_vehiculos">Max Vehicle Capacity</string>
+
+    <!-- Ubicaciones -->
+    <string name="title_asignacion_ubicaciones">Location Assignment</string>
+    <string name="btn_asignar_nueva_ubicacion">ASSIGN NEW LOCATION</string>
+    <string name="btn_consultar_ubicacion">CONSULT LOCATION</string>
+    <string name="btn_actualizar_ubicacion">UPDATE LOCATION</string>
+    <string name="btn_eliminar_ubicacion">DELETE LOCATION</string>
+    <string name="label_seleccione_vehiculo">Select Vehicle:</string>
+    <string name="label_seleccione_seccion">Select Warehouse Section:</string>
+    <string name="label_fecha_asignacion">Date (YYYY-MM-DD)</string>
+    <!-- General Labels -->
+    <string name="btn_search">SEARCH</string>
+    <string name="btn_load">LOAD</string>
+    <string name="btn_clean">CLEAN</string>
+    <string name="label_result">Result...</string>
+    <string name="hint_enter_id">Enter ID</string>
+
+    <!-- Warehouses -->
+    <string name="title_consultar_bodega">Consult Warehouse</string>
+    <string name="title_actualizar_bodega">Update Warehouse</string>
+    <string name="title_eliminar_bodega">Delete Warehouse</string>
+    <string name="label_id_bodega">Warehouse ID</string>
+
+    <!-- Sections -->
+    <string name="title_consultar_seccion">Consult Section</string>
+    <string name="title_actualizar_seccion">Update Section</string>
+    <string name="title_eliminar_seccion">Delete Section</string>
+    <string name="label_id_seccion">Section ID</string>
+
+    <!-- Locations -->
+    <string name="title_consultar_ubicacion">Consult Location</string>
+    <string name="title_actualizar_ubicacion">Update Location</string>
+    <string name="title_eliminar_ubicacion">Delete Location</string>
+    <string name="label_id_ubicacion">Location ID</string>
 </resources>
