@@ -308,6 +308,18 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
             END;
         """.trimIndent()
         db.execSQL(trLiberarReparacion)
+
+        // TRIGGER 11: Restringir antigüedad de vehículos (Gpo06 - Máximo 5 años)
+        val trRestringirAnio = """
+            CREATE TRIGGER tr_validar_anio_vehiculo BEFORE INSERT ON ${DatabaseContract.VehiculoEntry.TABLE_NAME}
+            BEGIN
+                SELECT CASE
+                    WHEN NEW.${DatabaseContract.VehiculoEntry.COLUMN_ANIO} <= 2020
+                    THEN RAISE(ABORT, 'No se permiten vehículos del año 2020 o anteriores (Máximo 5 años de antigüedad)')
+                END;
+            END;
+        """.trimIndent()
+        db.execSQL(trRestringirAnio)
     }
 
     override fun onOpen(db: SQLiteDatabase) {
