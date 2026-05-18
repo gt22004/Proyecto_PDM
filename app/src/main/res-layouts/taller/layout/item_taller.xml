@@ -47,4 +47,17 @@
         android:textColor="@color/auto_import_text_dark"
         android:textSize="12sp"/>
 
+    <TextView
+        android:id="@+id/txtItemAutorizado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_autorizado"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="2dp"
+        android:background="#E8F5E9"
+        android:textColor="#2E7D32"
+        android:layout_marginTop="8dp"
+        android:visibility="gone"/>
 </LinearLayout>

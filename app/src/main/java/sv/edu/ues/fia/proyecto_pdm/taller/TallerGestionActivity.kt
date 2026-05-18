@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -28,7 +29,7 @@ class TallerGestionActivity : BaseActivity() {
         val editNombre = findViewById<EditText>(R.id.editNombre)
         val editDireccion = findViewById<EditText>(R.id.editDireccion)
         val editTelefono = findViewById<EditText>(R.id.editTelefono)
-        val editAutorizado = findViewById<EditText>(R.id.editAutorizado)
+        val checkAutorizado = findViewById<CheckBox>(R.id.checkAutorizado)
 
         val btnIrACrear = findViewById<Button>(R.id.btnIrACrear)
         val btnBuscar = findViewById<Button>(R.id.btnBuscar)
@@ -68,7 +69,7 @@ class TallerGestionActivity : BaseActivity() {
                     editNombre.setText(tallerActual?.nombreTaller)
                     editDireccion.setText(tallerActual?.direccion)
                     editTelefono.setText(tallerActual?.telefono)
-                    editAutorizado.setText(tallerActual?.autorizado)
+                    checkAutorizado.isChecked = tallerActual?.autorizado?.trim()?.uppercase() == "S"
                     Toast.makeText(this, "Registro encontrado", Toast.LENGTH_SHORT).show()
                 } else {
                     limpiarCampos()
@@ -84,7 +85,7 @@ class TallerGestionActivity : BaseActivity() {
                 val nombre = editNombre.text.toString()
                 val direccion = editDireccion.text.toString()
                 val telefono = editTelefono.text.toString()
-                val autorizado = editAutorizado.text.toString()
+                val autorizado = if (checkAutorizado.isChecked) "S" else "N"
 
                 if (nombre.isNotEmpty()) {
                     val tallerEditado = Taller(
@@ -137,14 +138,14 @@ class TallerGestionActivity : BaseActivity() {
         findViewById<EditText>(R.id.editNombre).text.clear()
         findViewById<EditText>(R.id.editDireccion).text.clear()
         findViewById<EditText>(R.id.editTelefono).text.clear()
-        findViewById<EditText>(R.id.editAutorizado).text.clear()
+        findViewById<CheckBox>(R.id.checkAutorizado).isChecked = false
     }
 
     private fun llenarCampos(taller: Taller) {
         findViewById<EditText>(R.id.editNombre).setText(taller.nombreTaller)
         findViewById<EditText>(R.id.editDireccion).setText(taller.direccion)
         findViewById<EditText>(R.id.editTelefono).setText(taller.telefono)
-        findViewById<EditText>(R.id.editAutorizado).setText(taller.autorizado)
+        findViewById<CheckBox>(R.id.checkAutorizado).isChecked = taller.autorizado.trim().uppercase() == "S"
     }
 
     private fun actualizarLista() {
