@@ -17,6 +17,7 @@ class TallerAdapter(
         val txtId: TextView = view.findViewById(R.id.txtItemId)
         val txtDireccion: TextView = view.findViewById(R.id.txtItemDireccion)
         val txtTelefono: TextView = view.findViewById(R.id.txtItemTelefono)
+        val txtAutorizado: TextView = view.findViewById(R.id.txtItemAutorizado)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TallerViewHolder {
@@ -30,6 +31,12 @@ class TallerAdapter(
         holder.txtId.text = holder.itemView.context.getString(R.string.id_label, taller.idTaller)
         holder.txtDireccion.text = taller.direccion
         holder.txtTelefono.text = taller.telefono
+
+        if (taller.autorizado.trim().uppercase() == "S") {
+            holder.txtAutorizado.visibility = View.VISIBLE
+        } else {
+            holder.txtAutorizado.visibility = View.GONE
+        }
 
         holder.itemView.setOnClickListener { onItemClick(taller) }
     }

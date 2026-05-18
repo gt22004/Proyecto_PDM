@@ -64,4 +64,18 @@
             android:textSize="14sp"/>
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/txtItemRepApto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_apto"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="2dp"
+        android:background="#E8F5E9"
+        android:textColor="#2E7D32"
+        android:layout_marginTop="8dp"
+        android:visibility="gone"/>
+
 </LinearLayout>

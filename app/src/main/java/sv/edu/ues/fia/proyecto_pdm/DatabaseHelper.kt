@@ -336,6 +336,29 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
             END;
         """.trimIndent()
         db.execSQL(trRestringirAnio)
+
+        // TRIGGER 12: Solo permitir reparaciones en talleres autorizados
+        val trValidarTallerAutorizado = """
+            CREATE TRIGGER tr_validar_taller_autorizado BEFORE INSERT ON ${DatabaseContract.ReparacionEntry.TABLE_NAME}
+            BEGIN
+                SELECT CASE
+                    WHEN (SELECT UPPER(TRIM(${DatabaseContract.TallerEntry.COLUMN_AUTORIZADO})) FROM ${DatabaseContract.TallerEntry.TABLE_NAME} WHERE ${DatabaseContract.TallerEntry.COLUMN_ID} = NEW.${DatabaseContract.ReparacionEntry.COLUMN_ID_TALLER}) != 'S'
+                    THEN RAISE(ABORT, 'El taller seleccionado no está autorizado para realizar reparaciones.')
+                END;
+            END;
+        """.trimIndent()
+        db.execSQL(trValidarTallerAutorizado)
+
+        val trValidarTallerAutorizadoUpdate = """
+            CREATE TRIGGER tr_validar_taller_autorizado_update BEFORE UPDATE ON ${DatabaseContract.ReparacionEntry.TABLE_NAME}
+            BEGIN
+                SELECT CASE
+                    WHEN (SELECT UPPER(TRIM(${DatabaseContract.TallerEntry.COLUMN_AUTORIZADO})) FROM ${DatabaseContract.TallerEntry.TABLE_NAME} WHERE ${DatabaseContract.TallerEntry.COLUMN_ID} = NEW.${DatabaseContract.ReparacionEntry.COLUMN_ID_TALLER}) != 'S'
+                    THEN RAISE(ABORT, 'El taller seleccionado no está autorizado para realizar reparaciones.')
+                END;
+            END;
+        """.trimIndent()
+        db.execSQL(trValidarTallerAutorizadoUpdate)
     }
 
     override fun onOpen(db: SQLiteDatabase) {
@@ -370,7 +393,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     companion object {
         private const val DATABASE_NAME = "proyecto_pdm.db"
 
-        private const val DATABASE_VERSION = 26
+        private const val DATABASE_VERSION = 27
 
         @Volatile
         private var INSTANCE: DatabaseHelper? = null

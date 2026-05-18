@@ -18,6 +18,7 @@ class ReparacionAdapter(
         val txtDetalles: TextView = view.findViewById(R.id.txtItemRepDetalles)
         val txtFecha: TextView = view.findViewById(R.id.txtItemRepFecha)
         val txtCosto: TextView = view.findViewById(R.id.txtItemRepCosto)
+        val txtApto: TextView = view.findViewById(R.id.txtItemRepApto)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReparacionViewHolder {
@@ -33,6 +34,12 @@ class ReparacionAdapter(
         holder.txtDetalles.text = context.getString(R.string.rep_detalles, rep.idTaller, rep.idVehiculo)
         holder.txtFecha.text = context.getString(R.string.rep_fecha, rep.fechaEntrada)
         holder.txtCosto.text = context.getString(R.string.rep_costo, rep.costo)
+
+        if (rep.aptoParaVenta.trim().uppercase() == "S") {
+            holder.txtApto.visibility = View.VISIBLE
+        } else {
+            holder.txtApto.visibility = View.GONE
+        }
 
         holder.itemView.setOnClickListener { onItemClick(rep) }
     }

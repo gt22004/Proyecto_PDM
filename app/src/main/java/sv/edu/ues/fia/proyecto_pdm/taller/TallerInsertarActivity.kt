@@ -2,6 +2,7 @@ package sv.edu.ues.fia.proyecto_pdm.taller
 
 import android.os.Bundle
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -21,7 +22,7 @@ class TallerInsertarActivity : AppCompatActivity() {
         val editNombre = findViewById<EditText>(R.id.editNombre)
         val editDireccion = findViewById<EditText>(R.id.editDireccion)
         val editTelefono = findViewById<EditText>(R.id.editTelefono)
-        val editAutorizado = findViewById<EditText>(R.id.editAutorizado)
+        val checkAutorizado = findViewById<CheckBox>(R.id.checkAutorizado)
         val btnGuardar = findViewById<Button>(R.id.btnGuardar)
         val btnLimpiar = findViewById<Button>(R.id.btnLimpiar)
 
@@ -30,7 +31,7 @@ class TallerInsertarActivity : AppCompatActivity() {
             val nombre = editNombre.text.toString()
             val direccion = editDireccion.text.toString()
             val telefono = editTelefono.text.toString()
-            val autorizado = editAutorizado.text.toString()
+            val autorizado = if (checkAutorizado.isChecked) "S" else "N"
 
             if (nombre.isNotEmpty()) {
                 val taller = Taller(
@@ -63,6 +64,6 @@ class TallerInsertarActivity : AppCompatActivity() {
         findViewById<EditText>(R.id.editNombre).text.clear()
         findViewById<EditText>(R.id.editDireccion).text.clear()
         findViewById<EditText>(R.id.editTelefono).text.clear()
-        findViewById<EditText>(R.id.editAutorizado).text.clear()
+        findViewById<CheckBox>(R.id.checkAutorizado).isChecked = false
     }
 }

@@ -226,7 +226,7 @@
     <string name="btn_new_taller">NUEVO TALLER</string>
     <string name="label_nombre_taller">NOMBRE TALLER</string>
     <string name="label_telefono">TELÉFONO</string>
-    <string name="label_autorizado">AUTORIZADO (S/N)</string>
+    <string name="label_autorizado">TALLER AUTORIZADO</string>
 
     <!-- Reparaciones -->
     <string name="title_gestion_reparaciones">GESTIÓN DE REPARACIONES</string>
@@ -236,7 +236,7 @@
     <string name="label_fecha_entrada">FECHA ENTRADA</string>
     <string name="label_fecha_salida">FECHA SALIDA</string>
     <string name="label_descripcion">DESCRIPCIÓN</string>
-    <string name="label_apto">APTO PARA VENTA (S/N)</string>
+    <string name="label_apto">APTO PARA VENTA</string>
     <string name="label_costo">COSTO</string>
 
     <!-- Importación -->

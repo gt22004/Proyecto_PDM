@@ -48,7 +48,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="FECHA ENTRADA"
+            android:text="@string/label_fecha_entrada"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:layout_marginBottom="4dp"/>
@@ -57,12 +57,14 @@
             style="@style/AutoImportEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="DD/MM/AAAA" />
+            android:hint="YYYY-MM-DD"
+            android:focusable="false"
+            android:clickable="true" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="DESCRIPCIÓN"
+            android:text="@string/label_descripcion"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:layout_marginBottom="4dp"/>
@@ -72,18 +74,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <TextView
+        <CheckBox
+            android:id="@+id/checkInsRepApto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="APTO PARA VENTA (S/N)"
+            android:text="@string/label_apto"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:layout_marginBottom="4dp"/>
-        <EditText
-            android:id="@+id/editInsRepApto"
-            style="@style/AutoImportEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_marginBottom="12dp"/>
 
         <TextView
             android:layout_width="match_parent"

@@ -93,7 +93,9 @@
             style="@style/AutoImportEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="DD/MM/AAAA" />
+            android:hint="YYYY-MM-DD"
+            android:focusable="false"
+            android:clickable="true" />
 
         <TextView
             android:layout_width="match_parent"
@@ -107,7 +109,9 @@
             style="@style/AutoImportEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="DD/MM/AAAA" />
+            android:hint="YYYY-MM-DD"
+            android:focusable="false"
+            android:clickable="true" />
 
         <TextView
             android:layout_width="match_parent"
@@ -122,18 +126,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <TextView
+        <CheckBox
+            android:id="@+id/checkRepApto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/label_apto"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:layout_marginBottom="4dp"/>
-        <EditText
-            android:id="@+id/editRepApto"
-            style="@style/AutoImportEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_marginBottom="12dp"/>
 
         <TextView
             android:layout_width="match_parent"
